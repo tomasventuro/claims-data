@@ -3,419 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revibe Claims Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<title>Revibe — Claims Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0f0f10;
-    --bg2: #18181b;
-    --bg3: #222226;
-    --border: #2e2e33;
-    --text: #f0efea;
-    --text2: #8a8a96;
-    --text3: #55555f;
-    --accent: #d4f060;
-    --accent2: #60d4f0;
-    --purple: #a78bfa;
-    --teal: #34d399;
-    --amber: #fbbf24;
-    --red: #f87171;
-    --partner-color: #a78bfa;
-    --indep-color: #34d399;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    min-height: 100vh;
-    padding: 32px 40px;
-  }
-  /* Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 32px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 20px;
-  }
-  .header-left h1 {
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    color: var(--text);
-  }
-  .header-left h1 span { color: var(--accent); }
-  .header-left .subtitle {
-    font-size: 12px;
-    color: var(--text2);
-    margin-top: 4px;
-    font-family: 'DM Mono', monospace;
-  }
-  .header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
-  }
-  .pill {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    background: #1a2a1a;
-    color: var(--accent);
-    border: 1px solid #2a3a1a;
-  }
-  .updated {
-    font-size: 11px;
-    color: var(--text3);
-    font-family: 'DM Mono', monospace;
-  }
-
-  /* Alerts */
-  .alert-bar {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-  .alert {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    flex: 1;
-    min-width: 240px;
-  }
-  .alert-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-  .alert-amber { background: #211a0e; border: 1px solid #3d2f0e; color: #fbbf24; }
-  .alert-amber .alert-dot { background: var(--amber); }
-  .alert-red { background: #1f0e0e; border: 1px solid #3d1010; color: var(--red); }
-  .alert-red .alert-dot { background: var(--red); }
-
-  /* Grid */
-  .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
-  .g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
-  .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
-
-  /* Metric cards */
-  .metric {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 18px;
-  }
-  .metric .lbl {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: var(--text2);
-    margin-bottom: 8px;
-    font-family: 'DM Mono', monospace;
-  }
-  .metric .val { font-size: 28px; font-weight: 600; line-height: 1; letter-spacing: -1px; }
-  .metric .sub { font-size: 11px; color: var(--text3); margin-top: 5px; font-family: 'DM Mono', monospace; }
-
-  /* Cards */
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 18px;
-  }
-  .card-partner { border-top: 2px solid var(--partner-color); }
-  .card-indep { border-top: 2px solid var(--indep-color); }
-  .card-stale { border-top: 2px solid var(--amber); background: #181509; border-color: #3d2f0e; }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: var(--text3);
-    margin: 24px 0 10px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .section-check {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--teal);
-    background: #0d1f17;
-    border: 1px solid #1a3a28;
-    border-radius: 4px;
-    padding: 1px 6px;
-  }
-
-  .ct {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: var(--text2);
-    margin-bottom: 14px;
-    font-family: 'DM Mono', monospace;
-  }
-  .ct-p { color: var(--partner-color); }
-  .ct-i { color: var(--indep-color); }
-  .ct-s { color: var(--amber); }
-
-  /* Stage bars */
-  .sr { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-  .sl { width: 160px; flex-shrink: 0; color: var(--text2); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .bw { flex: 1; background: var(--bg3); border-radius: 2px; height: 6px; overflow: hidden; }
-  .bf { height: 6px; border-radius: 2px; transition: width .6s ease; }
-  .sn { width: 28px; text-align: right; font-weight: 600; color: var(--text); font-size: 12px; font-family: 'DM Mono', monospace; }
-
-  /* Rows */
-  .row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--text2); }
-  .row:last-child { border-bottom: none; }
-  .row strong { color: var(--text); font-family: 'DM Mono', monospace; font-weight: 500; }
-
-  /* Badge */
-  .badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 4px; font-family: 'DM Mono', monospace; font-weight: 500; }
-  .b-amber { background: #211a0e; color: var(--amber); border: 1px solid #3d2f0e; }
-  .b-red { background: #1f0e0e; color: var(--red); border: 1px solid #3d1010; }
-  .b-green { background: #0d1f17; color: var(--teal); border: 1px solid #1a3a28; }
-  .b-gray { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
-  .b-purple { background: #1a1030; color: var(--purple); border: 1px solid #2e1f50; }
-
-  /* Big num */
-  .bignum { font-size: 32px; font-weight: 600; letter-spacing: -1.5px; line-height: 1; }
-
-  /* Stale note */
-  .note { font-size: 11px; color: var(--text3); margin-top: 8px; font-family: 'DM Mono', monospace; line-height: 1.5; }
-
-  /* Country bars */
-  .cbar-wrap { display: flex; gap: 8px; align-items: flex-end; height: 80px; margin-top: 12px; }
-  .cbar { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
-  .cf { width: 100%; border-radius: 3px 3px 0 0; }
-  .cl { font-size: 10px; color: var(--text2); text-align: center; line-height: 1.3; font-family: 'DM Mono', monospace; }
-  .cn { font-size: 13px; font-weight: 600; color: var(--text); font-family: 'DM Mono', monospace; }
-
-  /* Partner block */
-  .partner-nums { display: flex; gap: 20px; margin-bottom: 14px; }
-  .partner-num-lbl { font-size: 10px; color: var(--text3); margin-bottom: 3px; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; }
-
-  /* Footer */
-  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-  .footer-left { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; }
-  .footer-right { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; }
+:root{--bg:#0c0c0d;--bg2:#141416;--bg3:#1c1c1f;--bg4:#242428;--border:#2a2a2e;--border2:#333338;--text:#eeede8;--text2:#888892;--text3:#4a4a52;--accent:#c8f060;--accent2:#60c8f0;--purple:#9d8df0;--teal:#2dd4a0;--amber:#f0b040;--red:#f06060;--green:#60c060;--partner:#9d8df0;--indep:#2dd4a0;--cc:#888892}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;min-height:100vh;padding:36px 44px 60px;line-height:1.5}
+.header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.header h1{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;letter-spacing:-.3px}
+.header h1 em{color:var(--accent);font-style:italic}
+.header-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);text-align:right;line-height:1.8}
+.vpill{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:10px;background:#0d1f12;border:1px solid #1e3d22;color:var(--teal);padding:3px 8px;border-radius:4px;margin-top:4px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+.metric{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.metric .lbl{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:8px}
+.metric .val{font-size:28px;font-weight:600;letter-spacing:-1.5px;line-height:1}
+.metric .sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:5px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.card-warn{background:#161208;border:1px solid #3a2c0a;border-top:2px solid var(--amber);border-radius:10px;padding:14px 16px}
+.card-partner{background:var(--bg2);border:1px solid var(--border);border-top:2px solid var(--partner);border-radius:10px;padding:14px 16px}
+.card-indep{background:var(--bg2);border:1px solid var(--border);border-top:2px solid var(--indep);border-radius:10px;padding:14px 16px}
+.card-cancel{background:var(--bg2);border:1px solid var(--border);border-top:2px solid var(--cc);border-radius:10px;padding:14px 16px}
+.card-ok{background:#0d1f12;border:1px solid #1e3d22;border-radius:10px;padding:14px 16px}
+.sec{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+.sec::after{content:'';flex:1;height:1px;background:var(--border)}
+.chk{font-family:'DM Mono',monospace;font-size:9px;color:var(--teal);background:#0d1f12;border:1px solid #1e3d22;border-radius:3px;padding:1px 5px;flex-shrink:0}
+.ct{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ct-warn{color:var(--amber)}.ct-p{color:var(--partner)}.ct-i{color:var(--indep)}.ct-c{color:var(--cc)}
+.pipe-tbl{width:100%;border-collapse:collapse}
+.pipe-tbl th{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);padding:4px 8px;border-bottom:1px solid var(--border);text-align:left}
+.pipe-tbl th:nth-child(3),.pipe-tbl th:nth-child(4),.pipe-tbl th:nth-child(5){text-align:right}
+.pipe-tbl td{padding:8px;border-bottom:1px solid var(--border);vertical-align:middle;font-size:12px}
+.pipe-tbl tr:last-child td{border-bottom:none}
+.pipe-tbl tr:hover td{background:var(--bg3)}
+.sname{display:flex;align-items:center;gap:7px;color:var(--text);font-size:12px}
+.sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.bwrap{width:120px;background:var(--bg3);border-radius:2px;height:5px;overflow:hidden}
+.bfill{height:5px;border-radius:2px}
+.ncell{font-family:'DM Mono',monospace;font-weight:600;color:var(--text);text-align:right;font-size:13px}
+.dcell{font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);text-align:right}
+.dcell strong{color:var(--text)}
+.row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;color:var(--text2)}
+.row:last-child{border-bottom:none}
+.row-w{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(240,176,64,.18);font-size:12px;color:var(--amber)}
+.row-w:last-child{border-bottom:none}
+.badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;padding:2px 7px;border-radius:3px;font-weight:500}
+.b-amber{background:#2a1e08;color:var(--amber);border:1px solid #3d2c0a}
+.b-red{background:#1f0e0e;color:var(--red);border:1px solid #3d1010}
+.b-green{background:#0d1f12;color:var(--teal);border:1px solid #1e3d22}
+.b-gray{background:var(--bg3);color:var(--text2);border:1px solid var(--border2)}
+.sr{display:flex;align-items:center;margin-bottom:8px;font-size:11px;gap:8px}
+.sl{width:155px;flex-shrink:0;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bw{flex:1;background:var(--bg3);border-radius:2px;height:6px;overflow:hidden}
+.bf{height:6px;border-radius:2px}
+.sn{width:26px;text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--text);flex-shrink:0;font-size:12px}
+.fr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.fr-card{border-radius:8px;padding:14px;text-align:center}
+.fv{font-size:30px;font-weight:600;letter-spacing:-1.5px;line-height:1;margin-bottom:4px}
+.fl{font-size:11px;font-weight:500}
+.fl2{font-size:10px;font-family:'DM Mono',monospace;margin-top:3px;opacity:.7}
+.pnums{display:flex;gap:20px;margin-bottom:14px}
+.pnl{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:3px}
+.bignum{font-size:30px;font-weight:600;letter-spacing:-1.5px;line-height:1}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);padding:4px 6px;border-bottom:1px solid var(--border);text-align:left}
+.tbl td{padding:6px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:var(--bg3)}
+.mono{font-family:'DM Mono',monospace;font-size:11px;color:var(--text)}
+.hrs{font-family:'DM Mono',monospace;font-weight:700}
+.note{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:8px;line-height:1.6}
+.note-w{font-family:'DM Mono',monospace;font-size:10px;color:var(--amber);opacity:.8;margin-top:8px;line-height:1.6}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="header-left">
-    <h1>Revibe <span>Claims</span> Dashboard</h1>
-    <div class="subtitle">WHERE claim_date &gt; '2026-05-03' AND claim_type IS NOT NULL</div>
+  <div>
+    <h1>Revibe <em>Claims</em> Dashboard</h1>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:5px">WHERE claim_date &gt; '2026-05-03' · claim_type IS NOT NULL</div>
   </div>
-  <div class="header-right">
-    <div class="pill">✓ all numbers verified — 122 unique claim IDs</div>
-    <div class="updated">Last pulled: May 6, 2026 · UAE time</div>
+  <div class="header-meta">
+    Last updated: May 6, 2026 · UAE time<br>
+    <div class="vpill">✓ all numbers from single atomic DB query · 153 unique claims</div>
   </div>
-</div>
-
-<div class="alert-bar">
-  <div class="alert alert-amber"><div class="alert-dot"></div>21 open claims not updated in 24h+ — stuck at form received or pending collection</div>
-  <div class="alert alert-amber"><div class="alert-dot"></div>85% of independent claims at Form Received — no supplier linked yet</div>
 </div>
 
 <div class="g4">
-  <div class="metric">
-    <div class="lbl">Total claims</div>
-    <div class="val" style="color:var(--accent)">122</div>
-    <div class="sub">unique claim IDs</div>
-  </div>
-  <div class="metric">
-    <div class="lbl">Open</div>
-    <div class="val" style="color:var(--accent2)">114</div>
-    <div class="sub">AED 153K exposure · avg 1,340</div>
-  </div>
-  <div class="metric">
-    <div class="lbl">Repair partners</div>
-    <div class="val" style="color:var(--partner-color)">31</div>
-    <div class="sub">Golden 19 · Platinum 12</div>
-  </div>
-  <div class="metric">
-    <div class="lbl">Independent</div>
-    <div class="val" style="color:var(--indep-color)">91</div>
-    <div class="sub">31 + 91 = 122 ✓</div>
-  </div>
+  <div class="metric"><div class="lbl">Total claims</div><div class="val" style="color:var(--accent)">153</div><div class="sub">open 118 · closed 35</div></div>
+  <div class="metric"><div class="lbl">Open exposure</div><div class="val" style="color:var(--amber)">166K</div><div class="sub">avg AED ~1,406 / claim</div></div>
+  <div class="metric"><div class="lbl">Repair partners</div><div class="val" style="color:var(--partner)">43</div><div class="sub">GS 28 · Platinum 15</div></div>
+  <div class="metric"><div class="lbl">Independent</div><div class="val" style="color:var(--indep)">110</div><div class="sub">28+15+110 = 153 ✓</div></div>
 </div>
 
-<div class="section-label">Stage breakdown <span class="section-check">77+20+15+8+2 = 122 ✓</span></div>
-
-<div class="card" style="margin-bottom:16px">
-  <div class="ct">All claims by stage</div>
-  <div class="sr"><div class="sl">0. Form received</div><div class="bw"><div class="bf" style="width:100%;background:#4a8ab5"></div></div><div class="sn">77</div></div>
-  <div class="sr"><div class="sl">1. Pending collection</div><div class="bw"><div class="bf" style="width:26%;background:#4ab59a"></div></div><div class="sn">20</div></div>
-  <div class="sr"><div class="sl">16. Under collection</div><div class="bw"><div class="bf" style="width:19%;background:var(--partner-color)"></div></div><div class="sn">15</div></div>
-  <div class="sr"><div class="sl" style="color:var(--text3)">11. Cancelled (closed)</div><div class="bw"><div class="bf" style="width:10%;background:var(--bg3)"></div></div><div class="sn" style="color:var(--text3)">8</div></div>
-  <div class="sr"><div class="sl">2. In transit</div><div class="bw"><div class="bf" style="width:3%;background:var(--teal)"></div></div><div class="sn">2</div></div>
+<div class="sec">① Pipeline by stage <span class="chk">53+39+35+21+4+1 = 153 ✓</span></div>
+<div class="card" style="margin-bottom:14px">
+  <table class="pipe-tbl" aria-label="Pipeline by stage">
+    <thead><tr><th style="width:200px">Stage</th><th style="width:130px">Volume</th><th>N</th><th>Avg days since claim</th><th>Avg days in stage</th></tr></thead>
+    <tbody>
+      <tr><td><div class="sname"><div class="sdot" style="background:#5b9dd9"></div>0. Form received</div></td><td><div class="bwrap"><div class="bfill" style="width:100%;background:#5b9dd9"></div></div></td><td class="ncell">53</td><td class="dcell"><strong>0.6d</strong></td><td class="dcell"><strong>0.6d</strong></td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:var(--indep)"></div>1. Pending collection</div></td><td><div class="bwrap"><div class="bfill" style="width:74%;background:var(--indep)"></div></div></td><td class="ncell">39</td><td class="dcell"><strong>0.8d</strong></td><td class="dcell"><strong>0.5d</strong></td></tr>
+      <tr style="opacity:.5"><td><div class="sname"><div class="sdot" style="background:var(--cc)"></div>11. Cancelled</div></td><td><div class="bwrap"><div class="bfill" style="width:66%;background:var(--cc)"></div></div></td><td class="ncell" style="color:var(--text2)">35</td><td class="dcell">1.1d</td><td class="dcell">0.4d</td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:var(--partner)"></div>16. Under collection</div></td><td><div class="bwrap"><div class="bfill" style="width:40%;background:var(--partner)"></div></div></td><td class="ncell">21</td><td class="dcell"><strong>1.0d</strong></td><td class="dcell"><strong>0.8d</strong></td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:var(--accent2)"></div>2. In transit</div></td><td><div class="bwrap"><div class="bfill" style="width:8%;background:var(--accent2)"></div></div></td><td class="ncell">4</td><td class="dcell"><strong>1.2d</strong></td><td class="dcell"><strong>0.5d</strong></td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:#f0b0a0"></div>19. Expert revision ⚡</div></td><td><div class="bwrap"><div class="bfill" style="width:2%;background:#f0b0a0"></div></div></td><td class="ncell">1</td><td class="dcell"><strong>0.2d</strong></td><td class="dcell"><strong>0.2d</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="note">Avg days in stage: created_at (Form received) · pending_collection_date (Pending / Under collection) · in_transit_date (In transit) · cancelled_date (Cancelled) · updated_at (Expert revision)</div>
 </div>
 
-<div class="g2" style="margin-bottom:16px">
-  <div class="card" style="background:var(--bg2)">
-    <div class="ct">Volume by day</div>
-    <div style="position:relative;height:140px"><canvas id="volChart" aria-label="Claims by day"></canvas></div>
+<div class="sec">② Staleness — priority action <span class="chk">13 open stale · 0 at 48h</span></div>
+<div class="g2">
+  <div class="card-warn">
+    <div class="ct ct-warn">Not updated in 24h+</div>
+    <div class="pnums">
+      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">13</div></div>
+      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">11%</div></div>
+      <div><div class="pnl" style="color:var(--amber)">AED at risk</div><div class="bignum" style="color:var(--amber)">17.3K</div></div>
+    </div>
+    <div class="row-w"><span>1. Pending collection</span><span class="badge b-amber">11</span></div>
+    <div class="row-w"><span>16. Under collection</span><span class="badge b-amber">1</span></div>
+    <div class="row-w"><span>2. In transit</span><span class="badge b-amber">1</span></div>
+    <div class="note-w">11 of 13 are Golden Specialist SA — pickup not yet arranged</div>
+  </div>
+  <div class="card-ok">
+    <div class="ct ct-i">Not updated in 48h+</div>
+    <div class="pnums">
+      <div><div class="pnl">stuck open</div><div class="bignum" style="color:var(--teal)">0</div></div>
+      <div><div class="pnl">% of open</div><div class="bignum" style="color:var(--teal)">0%</div></div>
+    </div>
+    <div class="note" style="color:var(--teal);opacity:.7">No open claims past 48h. Oldest stale is 31h. Nothing critically overdue.</div>
+  </div>
+</div>
+<div class="card" style="margin-bottom:14px">
+  <div class="ct">All 13 stale open claims</div>
+  <table class="tbl" aria-label="Stale open claims">
+    <thead><tr><th>Claim ID</th><th>Order Help</th><th>Stage</th><th>Country</th><th>Supplier</th><th>Reason</th><th>Hours</th><th>AED</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">8M4x2L</td><td class="mono">SA-117240-3</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">31h</span></td><td class="mono">861</td></tr>
+      <tr><td class="mono">foovQ3</td><td class="mono">SA-117240-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">31h</span></td><td class="mono">616</td></tr>
+      <tr><td class="mono">zZSq7o</td><td class="mono">SA-118461-2</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">30h</span></td><td class="mono">146</td></tr>
+      <tr><td class="mono">BiQy13</td><td class="mono">91423-1</td><td>Under collection</td><td>UAE</td><td>Gadgethub</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">30h</span></td><td class="mono">1,559</td></tr>
+      <tr><td class="mono">Viw0tM</td><td class="mono">SA-117323-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">29h</span></td><td class="mono">2,086</td></tr>
+      <tr><td class="mono">Yrgnl9</td><td class="mono">SA-117761-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">28h</span></td><td class="mono">1,165</td></tr>
+      <tr><td class="mono">SJ9qn5</td><td class="mono">SA-117554-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">28h</span></td><td class="mono">2,978</td></tr>
+      <tr><td class="mono">DVYd6Z</td><td class="mono">SA-117495-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">28h</span></td><td class="mono">1,342</td></tr>
+      <tr><td class="mono">Lsn5iL</td><td class="mono">SA-116572-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">28h</span></td><td class="mono">1,391</td></tr>
+      <tr><td class="mono">s9YeHU</td><td class="mono">SA-117623-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">27h</span></td><td class="mono">1,224</td></tr>
+      <tr><td class="mono">W3HyOe</td><td class="mono">SA-117839-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">26h</span></td><td class="mono">1,886</td></tr>
+      <tr><td class="mono">YbD7DU</td><td class="mono">SA-116676-1</td><td>Pending collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">24h</span></td><td class="mono">156</td></tr>
+      <tr><td class="mono">a7k4Qv</td><td class="mono">SA-115702-1</td><td>In transit</td><td>Saudi Arabia</td><td>—</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">24h</span></td><td class="mono">1,930</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec">③ Claim creation — form received <span class="chk">32+21 = 53 ✓</span></div>
+<div class="fr-grid">
+  <div class="fr-card" style="background:#1f0e0e;border:1px solid #3d1010"><div class="fv" style="color:var(--red)">32</div><div class="fl" style="color:var(--red)">Missing documents</div><div class="fl2" style="color:var(--red)">blocked — customer must send proof</div></div>
+  <div class="fr-card" style="background:#161208;border:1px solid #3a2c0a"><div class="fv" style="color:var(--amber)">21</div><div class="fl" style="color:var(--amber)">No status yet</div><div class="fl2" style="color:var(--amber)">not yet reviewed by team</div></div>
+  <div class="fr-card" style="background:#0d1f12;border:1px solid #1e3d22"><div class="fv" style="color:var(--teal)">0</div><div class="fl" style="color:var(--teal)">Completed</div><div class="fl2" style="color:var(--teal)">ready to progress</div></div>
+</div>
+<div class="g2" style="margin-bottom:14px">
+  <div class="card">
+    <div class="ct">Missing documents (32) <span class="chk">14+10+8 = 32 ✓</span></div>
+    <div class="row"><span>Saudi Arabia</span><div style="display:flex;gap:6px;align-items:center"><span class="badge b-red">14</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">44%</span></div></div>
+    <div class="row"><span>South Africa</span><div style="display:flex;gap:6px;align-items:center"><span class="badge b-red">10</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">31%</span></div></div>
+    <div class="row"><span>UAE</span><div style="display:flex;gap:6px;align-items:center"><span class="badge b-red">8</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">25%</span></div></div>
+    <div class="note">Mostly "Missing proof" · 1 × "Missing address"</div>
   </div>
   <div class="card">
-    <div class="ct">Claim reason</div>
-    <div class="row"><span>Issue with device</span><div style="display:flex;gap:8px;align-items:center"><strong>107</strong><span style="color:var(--text3);font-family:'DM Mono',monospace;font-size:11px">57%</span></div></div>
-    <div class="row"><span>Change of mind</span><div style="display:flex;gap:8px;align-items:center"><strong>63</strong><span style="color:var(--text3);font-family:'DM Mono',monospace;font-size:11px">33%</span></div></div>
-    <div class="row"><span>Wrong device received</span><div style="display:flex;gap:8px;align-items:center"><strong>18</strong><span style="color:var(--text3);font-family:'DM Mono',monospace;font-size:11px">10%</span></div></div>
-    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)">
-      <div class="ct" style="margin-bottom:10px">Top issues</div>
-      <div class="row"><span>Not working as expected</span><strong>75</strong></div>
-      <div class="row"><span>RTO / change of mind</span><strong>45</strong></div>
-      <div class="row"><span>Physical condition</span><strong>14</strong></div>
-      <div class="row"><span>Battery / overheating</span><strong>14</strong></div>
-      <div class="row"><span>Wrong device received</span><strong>9</strong></div>
-    </div>
+    <div class="ct">No status yet (21) <span class="chk">3+10+8 = 21 ✓</span></div>
+    <div class="row"><span>South Africa</span><div style="display:flex;gap:6px;align-items:center"><span class="badge b-amber">10</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">48%</span></div></div>
+    <div class="row"><span>UAE</span><div style="display:flex;gap:6px;align-items:center"><span class="badge b-amber">8</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">38%</span></div></div>
+    <div class="row"><span>Saudi Arabia</span><div style="display:flex;gap:6px;align-items:center"><span class="badge b-amber">3</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">14%</span></div></div>
+    <div class="note">Team needs to review and classify information completeness</div>
   </div>
 </div>
 
-<div class="section-label">Repair partners <span class="section-check">19+12 = 31 ✓</span></div>
-
+<div class="sec">④ Repair partners <span class="chk">27+1=28 GS ✓ · 13+2=15 PR ✓</span></div>
 <div class="g2">
-  <div class="card card-partner">
+  <div class="card-partner">
     <div class="ct ct-p">Golden Specialist — Saudi Arabia</div>
-    <div class="partner-nums">
-      <div><div class="partner-num-lbl">claims</div><div class="bignum" style="color:var(--partner-color)">19</div></div>
-      <div><div class="partner-num-lbl">AED exposure</div><div class="bignum" style="color:var(--partner-color)">28.6K</div></div>
+    <div class="pnums">
+      <div><div class="pnl">claims</div><div class="bignum" style="color:var(--partner)">28</div></div>
+      <div><div class="pnl">open exposure</div><div class="bignum" style="color:var(--partner)">50.2K</div></div>
     </div>
-    <div class="sr"><div class="sl">1. Pending collection</div><div class="bw"><div class="bf" style="width:100%;background:var(--partner-color)"></div></div><div class="sn">18</div></div>
-    <div class="sr"><div class="sl" style="color:var(--text3)">11. Cancelled</div><div class="bw"><div class="bf" style="width:6%;background:var(--bg3)"></div></div><div class="sn" style="color:var(--text3)">1</div></div>
-    <div class="note">18+1 = 19 ✓ · All open at Pending Collection — waiting for pickup</div>
+    <div class="sr"><div class="sl">1. Pending collection</div><div class="bw"><div class="bf" style="width:100%;background:var(--partner)"></div></div><div class="sn">27</div></div>
+    <div class="sr"><div class="sl" style="color:var(--text3)">11. Cancelled</div><div class="bw"><div class="bf" style="width:4%;background:var(--bg4)"></div></div><div class="sn" style="color:var(--text3)">1</div></div>
+    <div class="note">⚠ 11 of 27 pending not updated 24h+ — chase pickup with GS</div>
   </div>
-  <div class="card card-partner">
+  <div class="card-partner">
     <div class="ct ct-p">Platinum Repair — South Africa</div>
-    <div class="partner-nums">
-      <div><div class="partner-num-lbl">claims</div><div class="bignum" style="color:var(--partner-color)">12</div></div>
-      <div><div class="partner-num-lbl">AED exposure</div><div class="bignum" style="color:var(--partner-color)">11.9K</div></div>
+    <div class="pnums">
+      <div><div class="pnl">claims</div><div class="bignum" style="color:var(--partner)">15</div></div>
+      <div><div class="pnl">open exposure</div><div class="bignum" style="color:var(--partner)">12.4K</div></div>
     </div>
-    <div class="sr"><div class="sl">16. Under collection</div><div class="bw"><div class="bf" style="width:100%;background:var(--partner-color)"></div></div><div class="sn">11</div></div>
-    <div class="sr"><div class="sl" style="color:var(--text3)">11. Cancelled</div><div class="bw"><div class="bf" style="width:9%;background:var(--bg3)"></div></div><div class="sn" style="color:var(--text3)">1</div></div>
-    <div class="note">11+1 = 12 ✓ · All open Under Collection — return in progress</div>
+    <div class="sr"><div class="sl">16. Under collection</div><div class="bw"><div class="bf" style="width:100%;background:var(--partner)"></div></div><div class="sn">13</div></div>
+    <div class="sr"><div class="sl" style="color:var(--text3)">11. Cancelled</div><div class="bw"><div class="bf" style="width:15%;background:var(--bg4)"></div></div><div class="sn" style="color:var(--text3)">2</div></div>
+    <div class="note">All active — returns in progress. No staleness issues.</div>
   </div>
 </div>
-
-<div class="section-label">Independent suppliers <span class="section-check">77+4+2+2+6 = 91 ✓</span></div>
-
-<div class="card card-indep" style="margin-bottom:16px">
-  <div class="ct ct-i">91 claims — no repair partner assigned</div>
-  <div class="sr"><div class="sl">0. Form received</div><div class="bw"><div class="bf" style="width:100%;background:var(--indep-color)"></div></div><div class="sn">77</div></div>
-  <div class="sr"><div class="sl">16. Under collection</div><div class="bw"><div class="bf" style="width:5%;background:var(--indep-color)"></div></div><div class="sn">4</div></div>
-  <div class="sr"><div class="sl">2. In transit</div><div class="bw"><div class="bf" style="width:3%;background:var(--indep-color)"></div></div><div class="sn">2</div></div>
-  <div class="sr"><div class="sl">1. Pending collection</div><div class="bw"><div class="bf" style="width:3%;background:var(--indep-color)"></div></div><div class="sn">2</div></div>
-  <div class="sr"><div class="sl" style="color:var(--text3)">11. Cancelled</div><div class="bw"><div class="bf" style="width:7%;background:var(--bg3)"></div></div><div class="sn" style="color:var(--text3)">6</div></div>
-  <div class="note">77+4+2+2+6 = 91 ✓ · 85% stuck at Form Received — no supplier linked on most entries</div>
+<div class="card-indep" style="margin-top:12px;margin-bottom:14px">
+  <div class="ct ct-i">Independent — 110 claims <span class="chk" style="margin-left:6px">53+32+12+8+4+1 = 110 ✓</span></div>
+  <div class="sr"><div class="sl">0. Form received</div><div class="bw"><div class="bf" style="width:100%;background:var(--indep)"></div></div><div class="sn">53</div></div>
+  <div class="sr"><div class="sl" style="color:var(--text3)">11. Cancelled</div><div class="bw"><div class="bf" style="width:60%;background:var(--bg4)"></div></div><div class="sn" style="color:var(--text3)">32</div></div>
+  <div class="sr"><div class="sl">1. Pending collection</div><div class="bw"><div class="bf" style="width:23%;background:var(--indep)"></div></div><div class="sn">12</div></div>
+  <div class="sr"><div class="sl">16. Under collection</div><div class="bw"><div class="bf" style="width:15%;background:var(--indep)"></div></div><div class="sn">8</div></div>
+  <div class="sr"><div class="sl">2. In transit</div><div class="bw"><div class="bf" style="width:8%;background:var(--indep)"></div></div><div class="sn">4</div></div>
+  <div class="sr"><div class="sl">19. Expert revision</div><div class="bw"><div class="bf" style="width:2%;background:#f0b0a0"></div></div><div class="sn">1</div></div>
 </div>
 
-<div class="section-label">Staleness — open claims only <span class="section-check">21+93 = 114 ✓</span></div>
-
-<div class="g2">
-  <div class="card card-stale">
-    <div class="ct ct-s">Not updated in 24h+</div>
-    <div class="partner-nums">
-      <div><div class="partner-num-lbl">open claims</div><div class="bignum" style="color:var(--amber)">21</div></div>
-      <div><div class="partner-num-lbl">% of open</div><div class="bignum" style="color:var(--amber)">18%</div></div>
-    </div>
-    <div class="row"><span>0. Form received</span><span class="badge b-amber">14</span></div>
-    <div class="row"><span>1. Pending collection</span><span class="badge b-amber">4</span></div>
-    <div class="row"><span>16. Under collection</span><span class="badge b-amber">3</span></div>
-  </div>
-  <div class="card">
-    <div class="ct">Not updated in 48h+</div>
-    <div class="partner-nums">
-      <div><div class="partner-num-lbl">open claims</div><div class="bignum" style="color:var(--teal)">0</div></div>
-      <div><div class="partner-num-lbl">% of open</div><div class="bignum" style="color:var(--teal)">0%</div></div>
-    </div>
-    <div class="note">Nothing past 48h. Oldest stale claims are ~39h, all from May 3 batch. Good signal.</div>
-  </div>
-</div>
-
-<div class="section-label">By country <span class="section-check">60+35+27 = 122 ✓</span></div>
-
+<div class="sec">⑤ By country <span class="chk">72+47+34 = 153 ✓</span></div>
 <div class="g3">
   <div class="card">
-    <div class="ct">Saudi Arabia</div>
-    <div class="bignum" style="color:var(--accent2);margin-bottom:6px">60</div>
-    <div class="note" style="margin-bottom:12px">49% of total</div>
-    <div class="row"><span>Form received</span><strong>38</strong></div>
-    <div class="row"><span>Pending collection</span><strong>18</strong></div>
-    <div class="row"><span>In transit</span><strong>2</strong></div>
-    <div class="row"><span>Cancelled</span><strong>2</strong></div>
-    <div class="note" style="margin-top:8px">38+18+2+2 = 60 ✓</div>
-  </div>
-  <div class="card">
-    <div class="ct">South Africa</div>
-    <div class="bignum" style="color:var(--teal);margin-bottom:6px">35</div>
-    <div class="note" style="margin-bottom:12px">29% of total · Platinum Repair dominates</div>
-    <div class="row"><span>Form received</span><strong>16</strong></div>
-    <div class="row"><span>Under collection</span><strong>12</strong></div>
-    <div class="row"><span>Cancelled</span><strong>4</strong></div>
-    <div class="row"><span>Pending collection</span><strong>2</strong></div>
+    <div class="ct">Saudi Arabia <span class="chk">38+17+16+1=72 ✓</span></div>
+    <div class="bignum" style="color:var(--accent2);margin-bottom:5px">72</div>
+    <div class="note" style="margin-bottom:10px">47% of total</div>
+    <div class="row"><span>Pending collection</span><strong>38</strong></div>
+    <div class="row"><span>Form received</span><strong>17</strong></div>
+    <div class="row"><span>Cancelled</span><strong>16</strong></div>
     <div class="row"><span>In transit</span><strong>1</strong></div>
-    <div class="note" style="margin-top:8px">16+12+4+2+1 = 35 ✓</div>
   </div>
   <div class="card">
-    <div class="ct">United Arab Emirates</div>
-    <div class="bignum" style="color:var(--partner-color);margin-bottom:6px">27</div>
-    <div class="note" style="margin-bottom:12px">22% of total</div>
-    <div class="row"><span>Form received</span><strong>23</strong></div>
-    <div class="row"><span>Under collection</span><strong>3</strong></div>
-    <div class="row"><span>Cancelled</span><strong>1</strong></div>
-    <div class="note" style="margin-top:8px">23+3+1 = 27 ✓</div>
+    <div class="ct">South Africa <span class="chk">20+14+9+3+1=47 ✓</span></div>
+    <div class="bignum" style="color:var(--teal);margin-bottom:5px">47</div>
+    <div class="note" style="margin-bottom:10px">31% of total</div>
+    <div class="row"><span>Form received</span><strong>20</strong></div>
+    <div class="row"><span>Under collection</span><strong>14</strong></div>
+    <div class="row"><span>Cancelled</span><strong>9</strong></div>
+    <div class="row"><span>In transit</span><strong>3</strong></div>
+    <div class="row"><span>Pending collection</span><strong>1</strong></div>
   </div>
+  <div class="card">
+    <div class="ct">UAE <span class="chk">16+10+7+1=34 ✓</span></div>
+    <div class="bignum" style="color:var(--partner);margin-bottom:5px">34</div>
+    <div class="note" style="margin-bottom:10px">22% of total</div>
+    <div class="row"><span>Form received</span><strong>16</strong></div>
+    <div class="row"><span>Cancelled</span><strong>10</strong></div>
+    <div class="row"><span>Under collection</span><strong>7</strong></div>
+    <div class="row"><span>Expert revision</span><strong>1</strong></div>
+  </div>
+</div>
+
+<div class="sec">⑥ Cancelled — 35 claims <span class="chk">26+6+3=35 ✓</span></div>
+<div class="g2" style="margin-bottom:12px">
+  <div class="card-cancel">
+    <div class="ct ct-c">By outcome <span class="chk">26+6+3=35 ✓</span></div>
+    <div class="note" style="margin-bottom:10px">cancellation_reason not populated — using information_complete as proxy</div>
+    <div class="sr"><div class="sl" style="color:var(--red)">Rejected by team</div><div class="bw"><div class="bf" style="width:100%;background:var(--red);opacity:.5"></div></div><div class="sn">26</div></div>
+    <div class="sr"><div class="sl" style="color:var(--teal)">Completed (closed cleanly)</div><div class="bw"><div class="bf" style="width:23%;background:var(--teal);opacity:.5"></div></div><div class="sn">6</div></div>
+    <div class="sr"><div class="sl" style="color:var(--text3)">No status</div><div class="bw"><div class="bf" style="width:12%;background:var(--bg4)"></div></div><div class="sn" style="color:var(--text3)">3</div></div>
+  </div>
+  <div class="card-cancel">
+    <div class="ct ct-c">By claim reason <span class="chk">27+4+4=35 ✓</span></div>
+    <div class="sr"><div class="sl">Issue with device</div><div class="bw"><div class="bf" style="width:100%;background:var(--cc);opacity:.5"></div></div><div class="sn">27</div></div>
+    <div class="sr"><div class="sl">Change of mind</div><div class="bw"><div class="bf" style="width:15%;background:var(--cc);opacity:.5"></div></div><div class="sn">4</div></div>
+    <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:15%;background:var(--cc);opacity:.5"></div></div><div class="sn">4</div></div>
+    <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
+      <div class="ct ct-c" style="margin-bottom:8px">By country <span class="chk">16+9+10=35 ✓</span></div>
+      <div class="row"><span>Saudi Arabia</span><span class="badge b-gray">16</span></div>
+      <div class="row"><span>UAE</span><span class="badge b-gray">10</span></div>
+      <div class="row"><span>South Africa</span><span class="badge b-gray">9</span></div>
+    </div>
+  </div>
+</div>
+<div class="card-cancel">
+  <div class="ct ct-c">All 35 cancelled claims</div>
+  <table class="tbl" aria-label="Cancelled claims">
+    <thead><tr><th>Claim ID</th><th>Order Help</th><th>Country</th><th>Reason</th><th>Outcome</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">n3ELVl</td><td class="mono">SA-117794-1</td><td>Saudi Arabia</td><td>Change of mind</td><td><span class="badge b-green">Completed</span></td></tr>
+      <tr><td class="mono">cIoE7B</td><td class="mono">SA-118211-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">RcxlE1</td><td class="mono">SA-117593-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">PGX4mQ</td><td class="mono">SA-116081-2</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">4tfSkD</td><td class="mono">SA-116749-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">uCe2Hy</td><td class="mono">SA-118718-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">Atd8dB</td><td class="mono">SA-117865-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">8y5Ik2</td><td class="mono">SA-115492-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">BY8mLs</td><td class="mono">SA-117794-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">TGz3WI</td><td class="mono">SA-117071-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">MJr6kv</td><td class="mono">SA-117910-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">NwU92D</td><td class="mono">SA-118035-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">8T4ltl</td><td class="mono">SA-117437-1</td><td>Saudi Arabia</td><td>Issue</td><td><span class="badge b-gray">No status</span></td></tr>
+      <tr><td class="mono">B0wdZZ</td><td class="mono">SA-116287-2</td><td>Saudi Arabia</td><td>Wrong device</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">3qY3R9</td><td class="mono">SA-118381-1</td><td>Saudi Arabia</td><td>Wrong device</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">xF1Chb</td><td class="mono">SA-117819-1</td><td>Saudi Arabia</td><td>Wrong device</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">hfN6E0</td><td class="mono">ZA-44858-2</td><td>South Africa</td><td>Change of mind</td><td><span class="badge b-green">Completed</span></td></tr>
+      <tr><td class="mono">f1lTsH</td><td class="mono">ZA-50539-1</td><td>South Africa</td><td>Change of mind</td><td><span class="badge b-green">Completed</span></td></tr>
+      <tr><td class="mono">Eg7ic0</td><td class="mono">ZA-49320-1</td><td>South Africa</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">bOkH2T</td><td class="mono">ZA-49946-2</td><td>South Africa</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">vdz9zU</td><td class="mono">ZA-49352-1</td><td>South Africa</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">as7eKI</td><td class="mono">ZA-49948-1</td><td>South Africa</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">8ipSwu</td><td class="mono">ZA-49762-1</td><td>South Africa</td><td>Issue</td><td><span class="badge b-gray">No status</span></td></tr>
+      <tr><td class="mono">mQjHC3</td><td class="mono">ZA-49762-1</td><td>South Africa</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">dMkB49</td><td class="mono">ZA-49913-1</td><td>South Africa</td><td>Wrong device</td><td><span class="badge b-green">Completed</span></td></tr>
+      <tr><td class="mono">6y6cCA</td><td class="mono">89040-4</td><td>UAE</td><td>Change of mind</td><td><span class="badge b-green">Completed</span></td></tr>
+      <tr><td class="mono">6yfFZz</td><td class="mono">91196-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">Ewb1U5</td><td class="mono">90570-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-gray">No status</span></td></tr>
+      <tr><td class="mono">M7dOWo</td><td class="mono">90793-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">7y9Mkk</td><td class="mono">90985-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">P7lAlC</td><td class="mono">91035-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">iPr17q</td><td class="mono">90857-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">gNEx2y</td><td class="mono">90570-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-green">Completed</span></td></tr>
+      <tr><td class="mono">gJId2K</td><td class="mono">91697-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+      <tr><td class="mono">qvvOD5</td><td class="mono">91324-1</td><td>UAE</td><td>Issue</td><td><span class="badge b-red">Rejected</span></td></tr>
+    </tbody>
+  </table>
 </div>
 
 <div class="footer">
-  <div class="footer-left">Revibe Holdings · Claims Operations · Data from AP-Southeast-1 DB</div>
-  <div class="footer-right">Static snapshot — ask Tomas to refresh</div>
+  <span>Revibe Holdings · Claims Operations · AP-Southeast-1 DB</span>
+  <span>Static snapshot · ask Tomas to refresh · May 6, 2026</span>
 </div>
 
-<script>
-new Chart(document.getElementById('volChart'), {
-  type: 'bar',
-  data: {
-    labels: ['May 3', 'May 4', 'May 5', 'May 6'],
-    datasets: [{
-      label: 'Claims',
-      data: [15, 103, 70, 0],
-      backgroundColor: ['#2a3a1a','#4a6a22','#7aaa35','#d4f060'],
-      borderRadius: 3,
-      borderSkipped: false
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        backgroundColor: '#222226',
-        borderColor: '#2e2e33',
-        borderWidth: 1,
-        titleColor: '#f0efea',
-        bodyColor: '#8a8a96',
-        callbacks: { label: c => ' ' + c.parsed.y + ' claims' }
-      }
-    },
-    scales: {
-      x: { grid: { display: false }, ticks: { color: '#55555f', font: { family: 'DM Mono', size: 11 } } },
-      y: { grid: { color: '#2e2e33' }, ticks: { color: '#55555f', font: { family: 'DM Mono', size: 11 }, stepSize: 25 } }
-    }
-  }
-});
-</script>
 </body>
 </html>
