@@ -190,7 +190,7 @@ body {
     <div class="header-sub">WHERE claim_date &gt; '2026-05-03' · claim_type IS NOT NULL</div>
   </div>
   <div class="header-right">
-    <div class="ts">Last updated: May 21, 2026 · 9:00am UAE · UAE time</div>
+    <div class="ts">Last updated: May 22, 2026 · 9:00am UAE · UAE time</div>
     <div class="vpill">✓ all cross-checks passed · 1,192 unique claims</div>
   </div>
 </div>
@@ -198,7 +198,7 @@ body {
 <!-- TAB NAV -->
 <nav class="tab-nav">
   <button class="tab-btn active" onclick="switchTab('operational', this)">Operational view <span class="tab-pill">live</span></button>
-  <button class="tab-btn" onclick="switchTab('kpi', this)">KPIs <span class="tab-pill">May 4–21</span></button>
+  <button class="tab-btn" onclick="switchTab('kpi', this)">KPIs <span class="tab-pill">May 4–22</span></button>
 </nav>
 
 <!-- TAB: OPERATIONAL VIEW -->
@@ -206,7 +206,7 @@ body {
 
 <!-- URGENT ALERT -->
 <div class="alert-urgent">
-  <span>🚨 <strong>151 open claims past 48h without update</strong> — top offenders: Platinum Repair ZA (353h), Golden Specialist SA (288h+), BWR Electronics SA, Certifydtek SA · Escalate immediately</span>
+  <span>🚨 <strong>84 open claims past 48h without update</strong> — top offenders: Platinum Repair ZA (353h), Golden Specialist SA (288h+), BWR Electronics SA, Certifydtek SA · Escalate immediately</span>
   <span class="badge b-red">48h+ overdue</span>
 </div>
 
@@ -214,28 +214,28 @@ body {
 <div class="metrics-row">
   <div class="metric">
     <div class="lbl">Open claims</div>
-    <div class="val" style="color:#1a6e32">735</div>
-    <div class="sub">closed 528 · total 1,263</div>
+    <div class="val" style="color:#1a6e32">711</div>
+    <div class="sub">closed 623 · total 1,334</div>
   </div>
   <div class="metric">
     <div class="lbl">Open exposure</div>
-    <div class="val" style="color:var(--amber)">AED 2.06M</div>
-    <div class="sub">avg AED ~2,807 / open claim</div>
+    <div class="val" style="color:var(--amber)">AED 1.97M</div>
+    <div class="sub">avg AED ~2,771 / open claim</div>
   </div>
   <div class="metric">
     <div class="lbl">Repair partners</div>
-    <div class="val" style="color:var(--partner)">233</div>
-    <div class="sub">GS 147 · Platinum 86</div>
+    <div class="val" style="color:var(--partner)">243</div>
+    <div class="sub">GS 155 · Platinum 88</div>
   </div>
   <div class="metric">
     <div class="lbl">Independent</div>
-    <div class="val" style="color:var(--indep)">1,030</div>
-    <div class="sub">147+86+1,030 = 1,263 ✓</div>
+    <div class="val" style="color:var(--indep)">1,091</div>
+    <div class="sub">155+88+1,091 = 1,334 ✓</div>
   </div>
 </div>
 
 <!-- ① PIPELINE -->
-<div class="sec">① Pipeline by stage — open only <span class="chk">258+195+82+76+64+24+24+5+4+3 = 735 ✓</span></div>
+<div class="sec">① Pipeline by stage — open only <span class="chk">246+146+102+93+79+23+10+9+2+1 = 711 ✓</span></div>
 <div class="card" style="margin-bottom:14px">
   <table class="pipe-tbl" aria-label="Pipeline by stage">
     <thead>
@@ -251,47 +251,47 @@ body {
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#8b5cf6"></div>16. Under collection</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:100%;background:#8b5cf6"></div></div></td>
-        <td class="ncell">258</td><td class="dcell"><strong>7.9d</strong></td><td class="dcell"><strong style="color:var(--red)">3.9d</strong></td>
+        <td class="ncell">246</td><td class="dcell"><strong>8.5d</strong></td><td class="dcell"><strong style="color:var(--red)">4.5d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#10b981"></div>1. Pending collection</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:27%;background:#10b981"></div></div></td>
-        <td class="ncell">82</td><td class="dcell"><strong>6.7d</strong></td><td class="dcell"><strong style="color:var(--red)">5.6d</strong></td>
+        <td class="ncell">79</td><td class="dcell"><strong>7.3d</strong></td><td class="dcell"><strong style="color:var(--red)">6.2d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#06b6d4"></div>2. In transit</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:23%;background:#06b6d4"></div></div></td>
-        <td class="ncell">195</td><td class="dcell"><strong>10.0d</strong></td><td class="dcell"><strong style="color:var(--red)">7.4d</strong></td>
+        <td class="ncell">146</td><td class="dcell"><strong>10.5d</strong></td><td class="dcell"><strong style="color:var(--red)">7.9d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#3b82f6"></div>0. Form received</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:18%;background:#3b82f6"></div></div></td>
-        <td class="ncell">64</td><td class="dcell"><strong>2.2d</strong></td><td class="dcell"><strong>2.2d</strong></td>
+        <td class="ncell">93</td><td class="dcell"><strong>2.8d</strong></td><td class="dcell"><strong>2.8d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#f59e0b"></div>3. Under QC</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:17%;background:#f59e0b"></div></div></td>
-        <td class="ncell">76</td><td class="dcell"><strong>11.8d</strong></td><td class="dcell"><strong style="color:var(--red)">5.4d</strong></td>
+        <td class="ncell">102</td><td class="dcell"><strong>12.4d</strong></td><td class="dcell"><strong style="color:var(--red)">6.0d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#ef4444"></div>6. Ready for refund ⚡</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:3%;background:#ef4444"></div></div></td>
-        <td class="ncell">24</td><td class="dcell"><strong>12.7d</strong></td><td class="dcell"><strong style="color:var(--amber)">1.3d</strong></td>
+        <td><div class="bwrap"><div class="bfill" style="width:0%;background:#ef4444"></div></div></td>
+        <td class="ncell">0</td><td class="dcell">—</td><td class="dcell">—</td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#f97316"></div>17. Collection failed</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:3%;background:#f97316"></div></div></td>
-        <td class="ncell">24</td><td class="dcell"><strong>9.9d</strong></td><td class="dcell"><strong style="color:var(--red)">5.3d</strong></td>
+        <td class="ncell">23</td><td class="dcell"><strong>10.5d</strong></td><td class="dcell"><strong style="color:var(--red)">5.9d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#a78bfa"></div>19. Expert revision</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:1%;background:#a78bfa"></div></div></td>
-        <td class="ncell">5</td><td class="dcell">13.8d</td><td class="dcell">2.9d</td>
+        <td class="ncell">10</td><td class="dcell">14.4d</td><td class="dcell">3.5d</td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#d946ef"></div>18. Under revision</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:1%;background:#d946ef"></div></div></td>
-        <td class="ncell">4</td><td class="dcell">13.1d</td><td class="dcell">3.4d</td>
+        <td class="ncell">9</td><td class="dcell">13.7d</td><td class="dcell">4.0d</td>
       </tr>
     </tbody>
   </table>
@@ -389,8 +389,8 @@ body {
   <div class="card-urgent">
     <div class="ct ct-red">🚨 Not updated in 48h+ — action required</div>
     <div class="pnums">
-      <div><div class="pnl" style="color:var(--red)">critical claims</div><div class="bignum" style="color:var(--red)">151</div></div>
-      <div><div class="pnl" style="color:var(--red)">% of open</div><div class="bignum" style="color:var(--red)">21%</div></div>
+      <div><div class="pnl" style="color:var(--red)">critical claims</div><div class="bignum" style="color:var(--red)">84</div></div>
+      <div><div class="pnl" style="color:var(--red)">% of open</div><div class="bignum" style="color:var(--red)">12%</div></div>
     </div>
     <div class="row-r"><span>16. Under collection</span><span class="badge b-red">228 claims</span></div>
     <div class="row-r"><span>1. Pending collection</span><span class="badge b-red">69 claims</span></div>
@@ -401,8 +401,8 @@ body {
   <div class="card-warn">
     <div class="ct ct-warn">Not updated in 24h+</div>
     <div class="pnums">
-      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">230</div></div>
-      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">31%</div></div>
+      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">351</div></div>
+      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">49%</div></div>
     </div>
     <div class="row-w"><span>16. Under collection</span><span class="badge b-amber">228</span></div>
     <div class="row-w"><span>1. Pending collection</span><span class="badge b-amber">69</span></div>
@@ -566,11 +566,11 @@ body {
 </div>
 
 <!-- ⑤ COUNTRIES -->
-<div class="sec">⑤ By country <span class="chk">587+346+327+2+1 = 1,263 ✓</span></div>
+<div class="sec">⑤ By country <span class="chk">625+361+344+2+2 = 1,334 ✓</span></div>
 <div class="wide-3">
   <div class="card">
     <div class="ct">Saudi Arabia <span class="chk">46.6% of total</span></div>
-    <div class="bignum" style="color:#1565c0;margin-bottom:8px">587 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 46.5% of total</span></div>
+    <div class="bignum" style="color:#1565c0;margin-bottom:8px">625 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 46.8% of total</span></div>
     <div class="row"><span>16. Under collection</span><strong>—</strong></div>
     <div class="row"><span>11. Cancelled</span><strong>172</strong></div>
     <div class="row"><span>1. Pending collection</span><strong>—</strong></div>
@@ -579,14 +579,14 @@ body {
   </div>
   <div class="card">
     <div class="ct">United Arab Emirates <span class="chk">27.3% of total</span></div>
-    <div class="bignum" style="color:#065f46;margin-bottom:8px">346 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 27.4% of total</span></div>
+    <div class="bignum" style="color:#065f46;margin-bottom:8px">361 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 27.1% of total</span></div>
     <div class="row"><span>11. Cancelled</span><strong>101</strong></div>
     <div class="row"><span>Open stages</span><strong>225</strong></div>
     <div class="note">101 cancelled (31% cancel rate in UAE). Nisar Line cluster stale at 286h in transit.</div>
   </div>
   <div class="card">
     <div class="ct">South Africa <span class="chk">25.8% of total</span></div>
-    <div class="bignum" style="color:#5b21b6;margin-bottom:8px">327 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 25.9% of total</span></div>
+    <div class="bignum" style="color:#5b21b6;margin-bottom:8px">344 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 25.8% of total</span></div>
     <div class="row"><span>11. Cancelled</span><strong>70</strong></div>
     <div class="row"><span>Open stages</span><strong>238</strong></div>
     <div class="note">Worst staleness in absolute terms — Platinum Repair top cluster at 353h. Multiple suppliers (Certifydtek, Tauseef World, Sale Zone) with very long stale times.</div>
@@ -599,13 +599,13 @@ body {
 </div>
 
 <!-- ⑥ CANCELLED -->
-<div class="sec">⑥ Cancelled — 344 claims <span class="chk">296+47+23 = 366 ✓</span></div>
+<div class="sec">⑥ Cancelled — 344 claims <span class="chk">320+49+20 = 389 ✓</span></div>
 <div class="wide-2" style="margin-bottom:12px">
   <div class="card-cancel">
     <div class="ct ct-c">By claim reason <span class="chk">296+47+23 = 366 ✓</span></div>
     <div class="note" style="margin-bottom:10px">cancellation_reason field not populated in claim_cancellation_details — using sub_type as proxy</div>
-    <div class="sr"><div class="sl">Issue with device</div><div class="bw"><div class="bf" style="width:100%;background:#d6d3d1"></div></div><div class="sn">304</div></div>
-    <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:15%;background:#d6d3d1"></div></div><div class="sn">46</div></div>
+    <div class="sr"><div class="sl">Issue with device</div><div class="bw"><div class="bf" style="width:100%;background:#d6d3d1"></div></div><div class="sn">320</div></div>
+    <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:15%;background:#d6d3d1"></div></div><div class="sn">49</div></div>
     <div class="sr"><div class="sl">Change of mind</div><div class="bw"><div class="bf" style="width:7%;background:#d6d3d1"></div></div><div class="sn">20</div></div>
   </div>
   <div class="card-cancel">
@@ -994,9 +994,9 @@ body {
 <div class="card" style="margin-bottom:14px;padding:18px 20px">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Open claims at 9am UAE</div>
-      <div id="kpi-open-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1a6e32">727</div>
-      <div id="kpi-open-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">open at 9am today (May 21)</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Open claims at 9am</div>
+      <div id="kpi-open-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1a6e32">703</div>
+      <div id="kpi-open-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">open at 9am today (May 22)</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
@@ -1021,14 +1021,14 @@ body {
 <div class="card" style="margin-bottom:14px;padding:18px 20px">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg age today (May 21)</div>
-      <div id="kpi-age-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--amber)">7.5d</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg age</div>
+      <div id="kpi-age-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--amber)">7.6d</div>
       <div id="kpi-age-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">avg age of open claims at 9am</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Median today</div>
-        <div id="kpi-age-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">7.4d</div>
+        <div id="kpi-age-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">6.9d</div>
         <div id="kpi-age-median-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">median age at 9am</div>
       </div>
       <div style="text-align:right">
@@ -1063,14 +1063,14 @@ body {
 <div class="card" style="margin-bottom:14px;padding:18px 20px">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Resolved today (May 21)</div>
-      <div id="kpi-closed-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">0</div>
-      <div id="kpi-closed-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">refunded today (May 21) · 16 yesterday</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Resolved</div>
+      <div id="kpi-closed-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">39</div>
+      <div id="kpi-closed-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">37 refunded + 2 delivered yesterday (May 21)</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Period total</div>
-        <div id="kpi-closed-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">160</div>
+        <div id="kpi-closed-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">235</div>
         <div id="kpi-closed-total-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">resolved May 6–19</div>
       </div>
       <div style="text-align:right">
@@ -1084,7 +1084,8 @@ body {
     <canvas id="canvas-closed" style="width:100%;height:160px"></canvas>
   </div>
   <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);margin-top:8px;display:flex;gap:14px">
-    <span><span style="display:inline-block;width:10px;height:3px;background:#1565c0;border-radius:2px;vertical-align:middle;margin-right:4px"></span>Claims resolved (refunded) · "Delivered" stage will be included once live</span>
+    <span><span style="display:inline-block;width:10px;height:3px;background:#1565c0;border-radius:2px;vertical-align:middle;margin-right:4px"></span>Refunded</span>
+    <span><span style="display:inline-block;width:10px;height:3px;background:#059669;border-radius:2px;vertical-align:middle;margin-right:4px;border-top:1px dashed #059669"></span>Delivered</span>
   </div>
 </div>
 
@@ -1093,14 +1094,14 @@ body {
 <div class="card" style="margin-bottom:14px;padding:18px 20px">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Cancelled today (May 21)</div>
-      <div id="kpi-cancel-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--cancel)">0</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Cancelled</div>
+      <div id="kpi-cancel-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--cancel)">17</div>
       <div id="kpi-cancel-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">19 cancelled yesterday (May 19)</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Period total</div>
-        <div id="kpi-cancel-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">373</div>
+        <div id="kpi-cancel-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">389</div>
         <div id="kpi-cancel-total-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">cancelled May 6–19</div>
       </div>
       <div style="text-align:right">
@@ -1123,19 +1124,19 @@ body {
 <div class="card" style="margin-bottom:14px;padding:18px 20px">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg days to resolve — yesterday</div>
-      <div id="kpi-dtr-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--amber)">10.8d</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg days to resolve</div>
+      <div id="kpi-dtr-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--amber)">8.4d</div>
       <div id="kpi-dtr-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">May 19 · 35 claims resolved</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Median yesterday</div>
-        <div id="kpi-dtr-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">11.3d</div>
+        <div id="kpi-dtr-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">7.8d</div>
         <div id="kpi-dtr-median-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">May 19</div>
       </div>
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Overall avg</div>
-        <div id="kpi-dtr-pavg" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">9.0d</div>
+        <div id="kpi-dtr-pavg" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">9.1d</div>
         <div id="kpi-dtr-pavg-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">across all 159 resolved</div>
       </div>
     </div>
@@ -1158,8 +1159,8 @@ body {
   <div class="card" style="padding:18px 20px">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
       <div>
-        <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Claims received today</div>
-        <div id="kpi-recv-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">4</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Claims received</div>
+        <div id="kpi-recv-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">72</div>
         <div id="kpi-recv-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">May 20 · partial day</div>
       </div>
       <div style="text-align:right">
@@ -1180,13 +1181,13 @@ body {
   <div class="card" style="padding:18px 20px">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
       <div>
-        <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg time to action — today</div>
-        <div id="kpi-tta-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#8b5cf6">1.0d</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg time to action</div>
+        <div id="kpi-tta-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#8b5cf6">1.1d</div>
         <div id="kpi-tta-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">form received → moved to next stage</div>
       </div>
       <div style="text-align:right">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Median today</div>
-        <div id="kpi-tta-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">0.6d</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Median yesterday</div>
+        <div id="kpi-tta-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">0.7d</div>
         <div id="kpi-tta-median-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">median time to action</div>
       </div>
     </div>
@@ -1238,7 +1239,6 @@ function switchTab(id, btn) {
 
 /* ── DATA: open claims at 9am UAE each day ── */
 const daily = [
-  { date:'May 6',  open:110 },
   { date:'May 7',  open:173 },
   { date:'May 8',  open:244 },
   { date:'May 9',  open:287 },
@@ -1253,13 +1253,14 @@ const daily = [
   { date:'May 18', open:725 },
   { date:'May 19', open:717 },
   { date:'May 20', open:703 },
-  { date:'May 21', open:727 },
+  { date:'May 21', open:711 },
+  { date:'May 22', open:703 },
 ];
 
 const weekly = [
-  { date:'May 6–10',  open:Math.round((110+173+244+287+357)/5) },
-  { date:'May 11–17', open:Math.round((392+474+520+559+598+641+694)/7) },
-  { date:'May 18–21', open:Math.round((725+717+703+727)/4) },
+  { date:'May 7–11',  open:Math.round((173+244+287+357+392)/5) },
+  { date:'May 12–18', open:Math.round((474+520+559+598+641+694+725)/7) },
+  { date:'May 19–22', open:Math.round((717+703+711+703)/4) },
 ];
 
 const monthly = [
@@ -1269,9 +1270,9 @@ const monthly = [
 const views = { day: daily, week: weekly, month: monthly };
 
 const kpiText = {
-  day:   { big:'727', sub:'open at 9am today (May 21)', avg:'518', avgSub:'avg open at 9am / day (16d)' },
-  week:  { big:'718', sub:'avg open at 9am (May 18–21)', avg:'518', avgSub:'avg open at 9am / day' },
-  month: { big:'518', sub:'avg open at 9am (May 2026)',  avg:'518', avgSub:'avg open at 9am / day' },
+  day:   { big:'703', sub:'open at 9am today (May 22)', avg:'546', avgSub:'avg open at 9am / day (16d)' },
+  week:  { big:'709', sub:'avg open at 9am (May 19–22)', avg:'546', avgSub:'avg open at 9am / day' },
+  month: { big:'546', sub:'avg open at 9am (May 2026)',  avg:'546', avgSub:'avg open at 9am / day' },
 };
 
 /* ── CHART ── */
@@ -1447,7 +1448,6 @@ function setView(v) {
 
 /* ── CHART 2: Aging ── */
 const agingDaily = [
-  { date:'May 6',  avg:0.8,  med:0.8  },
   { date:'May 7',  avg:1.2,  med:1.0  },
   { date:'May 8',  avg:1.7,  med:1.7  },
   { date:'May 9',  avg:2.3,  med:2.3  },
@@ -1462,21 +1462,22 @@ const agingDaily = [
   { date:'May 18', avg:6.3,  med:6.1  },
   { date:'May 19', avg:6.6,  med:6.7  },
   { date:'May 20', avg:7.0,  med:6.9  },
-  { date:'May 21', avg:7.5,  med:7.4  },
+  { date:'May 21', avg:7.3,  med:7.0  },
+  { date:'May 22', avg:7.6,  med:6.9  },
 ];
 const agingWeekly = [
-  { date:'May 6–10',  avg:1.7, med:1.7 },
-  { date:'May 11–17', avg:4.6, med:4.3 },
-  { date:'May 18–21', avg:6.9, med:6.8 },
+  { date:'May 7–11',  avg:2.2, med:2.1 },
+  { date:'May 12–18', avg:5.5, med:5.2 },
+  { date:'May 19–22', avg:7.1, med:6.9 },
 ];
 const agingMonthly = [
   { date:'May 2026', avg:+(agingDaily.reduce((s,d)=>s+d.avg,0)/agingDaily.length).toFixed(1), med:+(agingDaily.reduce((s,d)=>s+d.med,0)/agingDaily.length).toFixed(1) },
 ];
 const agingViews = { day:agingDaily, week:agingWeekly, month:agingMonthly };
 const agingKpiText = {
-  day:   { big:'7.5d', sub:'avg age of open claims at 9am today', median:'7.4d', medSub:'median age at 9am', pavg:'4.6d', pavgSub:'avg across 16 days' },
-  week:  { big:'6.9d', sub:'avg age (May 18–21)', median:'6.8d', medSub:'median (May 18–21)', pavg:'4.6d', pavgSub:'avg across 3 weeks' },
-  month: { big:'4.6d', sub:'avg age (May 2026)', median:'4.3d', medSub:'median (May 2026)', pavg:'4.6d', pavgSub:'monthly avg' },
+  day:   { big:'7.6d', sub:'avg age today (May 22)', median:'6.9d', medSub:'median age today', pavg:'4.9d', pavgSub:'avg across 16 days' },
+  week:  { big:'7.1d', sub:'avg age (May 19–22)', median:'6.9d', medSub:'median (May 19–22)', pavg:'4.9d', pavgSub:'avg across 3 weeks' },
+  month: { big:'4.9d', sub:'avg age (May 2026)', median:'4.5d', medSub:'median (May 2026)', pavg:'4.9d', pavgSub:'monthly avg' },
 };
 
 function drawAgingChart(view) {
@@ -1500,43 +1501,46 @@ function drawAgingChart(view) {
 
 /* ── CHART 3: Resolved claims ── */
 const closedDaily = [
-  { date:'May 6',  closed:0  },
-  { date:'May 7',  closed:2  },
-  { date:'May 8',  closed:2  },
-  { date:'May 9',  closed:0  },
-  { date:'May 10', closed:0  },
-  { date:'May 11', closed:5  },
-  { date:'May 12', closed:0  },
-  { date:'May 13', closed:0  },
-  { date:'May 14', closed:0  },
-  { date:'May 15', closed:0  },
-  { date:'May 16', closed:0  },
-  { date:'May 17', closed:0  },
-  { date:'May 18', closed:34 },
-  { date:'May 19', closed:101},
-  { date:'May 20', closed:16 },
-  { date:'May 21', closed:0  },
+  { date:'May 7',  refunded:2,   delivered:0 },
+  { date:'May 8',  refunded:2,   delivered:0 },
+  { date:'May 9',  refunded:0,   delivered:0 },
+  { date:'May 10', refunded:0,   delivered:0 },
+  { date:'May 11', refunded:5,   delivered:0 },
+  { date:'May 12', refunded:0,   delivered:0 },
+  { date:'May 13', refunded:0,   delivered:0 },
+  { date:'May 14', refunded:0,   delivered:0 },
+  { date:'May 15', refunded:0,   delivered:0 },
+  { date:'May 16', refunded:0,   delivered:0 },
+  { date:'May 17', refunded:0,   delivered:0 },
+  { date:'May 18', refunded:34,  delivered:0 },
+  { date:'May 19', refunded:101, delivered:0 },
+  { date:'May 20', refunded:16,  delivered:0 },
+  { date:'May 21', refunded:37,  delivered:2 },
+  { date:'May 22', refunded:36,  delivered:0 },
 ];
 const closedWeekly = [
-  { date:'May 6–10',  closed:Math.round((0+2+2+0+0)/5) },
-  { date:'May 11–17', closed:Math.round((5+0+0+0+0+0+0)/7) },
-  { date:'May 18–21', closed:Math.round((34+101+16+0)/4) },
+  { date:'May 7–11',  refunded:Math.round((2+2+0+0+5)/5),   delivered:0 },
+  { date:'May 12–18', refunded:Math.round((0+0+0+0+0+0+34)/7), delivered:0 },
+  { date:'May 19–22', refunded:Math.round((101+16+37+36)/4), delivered:Math.round((0+0+2+0)/4) },
 ];
 const closedMonthly = [
-  { date:'May 2026', closed:Math.round((0+2+2+0+0+5+0+0+0+0+0+0+34+101+16+0)/16) },
+  { date:'May 2026', refunded:Math.round((2+2+0+0+5+0+0+0+0+0+0+34+101+16+37+36)/16), delivered:Math.round(2/16) },
 ];
 const closedViews = { day:closedDaily, week:closedWeekly, month:closedMonthly };
 const closedKpiText = {
-  day:   { big:'0',  sub:'resolved today (May 21) · 16 yesterday', total:'160', totalSub:'resolved May 7–20', avg:'10', avgSub:'avg resolved / day (16d)' },
-  week:  { big:'38', sub:'avg resolved / day (May 18–21)', total:'160', totalSub:'resolved May 7–20', avg:'10', avgSub:'avg resolved / day' },
+  day:   { big:'39', sub:'resolved yesterday (May 21)', total:'235', totalSub:'resolved May 7–22', avg:'15', avgSub:'avg resolved / day (16d)' },
+  week:  { big:'48', sub:'avg resolved / day (May 19–22)', total:'235', totalSub:'resolved May 7–22', avg:'15', avgSub:'avg resolved / day' },
   month: { big:'11', sub:'avg resolved / day (May 2026)', total:'159', totalSub:'resolved May 6–19', avg:'11', avgSub:'avg resolved / day' },
 };
 
 function drawClosedChart(view) {
   buildChart('canvas-closed', closedViews[view],
-    [{ key:'closed', color:'#1565c0', dash:false, label:'Resolved' }],
-    data => Math.ceil(Math.max(...data.map(d=>d.closed), 1) / 20) * 20,
-    v => Math.round(v),
+    [
+      { key:'refunded',  color:'#1565c0', dash:false, label:'Refunded' },
+      { key:'delivered', color:'#059669', dash:true,  label:'Delivered' },
+    ],
+    data => Math.ceil(Math.max(...data.map(d=>d.refunded+d.delivered), 1) / 20) * 20,
+    val => Math.round(val),
     38
   );
   const t = closedKpiText[view];
@@ -1558,7 +1562,6 @@ setView = function(v) {
 /* ── CHART 4: Days to resolve ── */
 // Only days that had resolutions; days with 0 omitted (no meaningful avg/median)
 const dtrDaily = [
-  { date:'May 6',  avg:null, med:null },
   { date:'May 7',  avg:0.4,  med:0.4  },
   { date:'May 8',  avg:0.0,  med:0.0  },
   { date:'May 9',  avg:null, med:null },
@@ -1573,22 +1576,23 @@ const dtrDaily = [
   { date:'May 18', avg:9.3,  med:9.7  },
   { date:'May 19', avg:9.0,  med:8.6  },
   { date:'May 20', avg:10.8, med:11.3 },
-  { date:'May 21', avg:null, med:null },
+  { date:'May 21', avg:8.4,  med:7.8  },
+  { date:'May 22', avg:9.8,  med:10.5 },
 ];
 // Weekly: weighted avg across all resolved claims in each week
 const dtrWeekly = [
-  { date:'May 6–10',  avg:0.2, med:0.2 },
-  { date:'May 11–17', avg:9.3, med:9.7 },
-  { date:'May 18–21', avg:9.9, med:9.5 },
+  { date:'May 7–11',  avg:0.7, med:0.1 },
+  { date:'May 12–18', avg:9.3, med:9.7 },
+  { date:'May 19–22', avg:9.5, med:9.6 },
 ];
 const dtrMonthly = [
-  { date:'May 2026', avg:9.0, med:8.7 },
+  { date:'May 2026', avg:9.1, med:8.8 },
 ];
 const dtrViews = { day:dtrDaily, week:dtrWeekly, month:dtrMonthly };
 const dtrKpiText = {
-  day:   { big:'10.8d', sub:'avg days to resolve — May 20 (16 claims)', median:'11.3d', medSub:'median — May 20', pavg:'9.0d', pavgSub:'across all 160 resolved' },
-  week:  { big:'9.9d',  sub:'avg days to resolve (May 18–21)',           median:'9.5d',  medSub:'median (May 18–21)',  pavg:'9.0d', pavgSub:'across all 160 resolved' },
-  month: { big:'9.0d',  sub:'avg days to resolve (May 2026)',            median:'8.7d',  medSub:'median (May 2026)',   pavg:'9.0d', pavgSub:'across all 160 resolved' },
+  day:   { big:'8.4d',  sub:'avg days to resolve — May 21 (39 claims)', median:'7.8d',  medSub:'median — May 21', pavg:'9.1d', pavgSub:'across all 235 resolved' },
+  week:  { big:'9.5d',  sub:'avg days to resolve (May 19–22)',           median:'9.6d',  medSub:'median (May 19–22)',  pavg:'9.1d', pavgSub:'across all 235 resolved' },
+  month: { big:'9.1d',  sub:'avg days to resolve (May 2026)',            median:'8.8d',  medSub:'median (May 2026)',   pavg:'9.1d', pavgSub:'across all 235 resolved' },
 };
 
 function drawDtrChart(view) {
@@ -1630,14 +1634,14 @@ const closedByValidity = {
     month: closedMonthly,
   },
   valid: {
-    day:   closedDaily, // all resolved are valid
+    day:   closedDaily,
     week:  closedWeekly,
     month: closedMonthly,
   },
   invalid: {
-    day:   closedDaily.map(d => ({ ...d, closed: 0 })),
-    week:  closedWeekly.map(d => ({ ...d, closed: 0 })),
-    month: closedMonthly.map(d => ({ ...d, closed: 0 })),
+    day:   closedDaily.map(d => ({ ...d, refunded: 0, delivered: 0 })),
+    week:  closedWeekly.map(d => ({ ...d, refunded: 0, delivered: 0 })),
+    month: closedMonthly.map(d => ({ ...d, refunded: 0, delivered: 0 })),
   },
 };
 
@@ -1687,8 +1691,11 @@ function setValidity(v) {
   // Redraw resolved chart with filtered data
   const cData = closedByValidity[v][currentView];
   buildChart('canvas-closed', cData,
-    [{ key:'closed', color:'#1565c0', dash:false, label:'Resolved' }],
-    data => Math.ceil(Math.max(...data.map(d=>d.closed), 1) / 20) * 20,
+    [
+      { key:'refunded',  color:'#1565c0', dash:false, label:'Refunded' },
+      { key:'delivered', color:'#059669', dash:true,  label:'Delivered' },
+    ],
+    data => Math.ceil(Math.max(...data.map(d=>d.refunded+d.delivered), 1) / 20) * 20,
     val => Math.round(val),
     38
   );
@@ -1733,7 +1740,6 @@ setView = function(v) {
 
 /* ── CHART 4: Cancelled per day ── */
 const cancelDaily = [
-  { date:'May 6',  cancel:32 },
   { date:'May 7',  cancel:16 },
   { date:'May 8',  cancel:22 },
   { date:'May 9',  cancel:0  },
@@ -1748,20 +1754,21 @@ const cancelDaily = [
   { date:'May 18', cancel:26 },
   { date:'May 19', cancel:22 },
   { date:'May 20', cancel:29 },
-  { date:'May 21', cancel:0  },
+  { date:'May 21', cancel:17 },
+  { date:'May 22', cancel:2  },
 ];
 const cancelWeekly = [
-  { date:'May 6–10',  cancel:Math.round((32+16+22+0+37)/5) },
-  { date:'May 11–17', cancel:Math.round((27+13+44+27+24+20+30)/7) },
-  { date:'May 18–21', cancel:Math.round((26+22+29+0)/4) },
+  { date:'May 7–11',  cancel:Math.round((16+22+0+37+27)/5) },
+  { date:'May 12–18', cancel:Math.round((13+44+27+24+20+30+26)/7) },
+  { date:'May 19–22', cancel:Math.round((22+29+17+2)/4) },
 ];
 const cancelMonthly = [
   { date:'May 2026', cancel:Math.round(cancelDaily.reduce((s,d)=>s+d.cancel,0)/cancelDaily.length) },
 ];
 const cancelViews = { day:cancelDaily, week:cancelWeekly, month:cancelMonthly };
 const cancelKpiText = {
-  day:   { big:'0',  sub:'cancelled today (May 21) · 29 yesterday', total:'373', totalSub:'cancelled May 6–20', avg:'23', avgSub:'avg cancelled / day (16d)' },
-  week:  { big:'19', sub:'avg cancelled / day (May 18–21)',          total:'344', totalSub:'cancelled May 6–20', avg:'23', avgSub:'avg cancelled / day' },
+  day:   { big:'17', sub:'cancelled yesterday (May 21)', total:'389', totalSub:'cancelled May 7–22', avg:'24', avgSub:'avg cancelled / day (16d)' },
+  week:  { big:'18', sub:'avg cancelled / day (May 19–22)',          total:'344', totalSub:'cancelled May 6–20', avg:'23', avgSub:'avg cancelled / day' },
   month: { big:'23', sub:'avg cancelled / day (May 2026)',           total:'344', totalSub:'cancelled May 6–20', avg:'23', avgSub:'avg cancelled / day' },
 };
 
@@ -1789,7 +1796,6 @@ setView = function(v) {
 
 /* ── CHART 6a: Claims received per day ── */
 const recvDaily = [
-  { date:'May 6',  recv:98  },
   { date:'May 7',  recv:85  },
   { date:'May 8',  recv:68  },
   { date:'May 9',  recv:69  },
@@ -1804,7 +1810,8 @@ const recvDaily = [
   { date:'May 18', recv:82  },
   { date:'May 19', recv:64  },
   { date:'May 20', recv:72  },
-  { date:'May 21', recv:4   },
+  { date:'May 21', recv:72  },
+  { date:'May 22', recv:3   },
 ];
 const recvWeekly = [
   { date:'May 6–10',  recv:Math.round((98+85+68+69+71)/5) },
@@ -1816,14 +1823,13 @@ const recvMonthly = [
 ];
 const recvViews = { day:recvDaily, week:recvWeekly, month:recvMonthly };
 const recvKpiText = {
-  day:   { big:'4',  sub:'May 21 · partial day', avg:'75', avgSub:'avg received / day (16d)' },
-  week:  { big:'73', sub:'avg received / day (May 18–21)', avg:'74', avgSub:'avg received / day' },
+  day:   { big:'72', sub:'May 21 (yesterday)', avg:'74', avgSub:'avg received / day (16d)' },
+  week:  { big:'53', sub:'avg received / day (May 19–22)', avg:'74', avgSub:'avg received / day' },
   month: { big:'74', sub:'avg received / day (May 2026)', avg:'74', avgSub:'avg received / day' },
 };
 
 /* ── CHART 6b: Time to action ── */
 const ttaDaily = [
-  { date:'May 6',  avg:0.5, med:0.5 },
   { date:'May 7',  avg:0.3, med:0.3 },
   { date:'May 8',  avg:1.3, med:0.7 },
   { date:'May 9',  avg:0.0, med:0.0 },
@@ -1838,19 +1844,20 @@ const ttaDaily = [
   { date:'May 18', avg:0.9, med:0.7 },
   { date:'May 19', avg:0.9, med:0.6 },
   { date:'May 20', avg:1.0, med:0.5 },
-  { date:'May 21', avg:0.0, med:0.0 },
+  { date:'May 21', avg:1.1, med:0.7 },
+  { date:'May 22', avg:0.0, med:0.0 },
 ];
 const ttaWeekly = [
-  { date:'May 6–10',  avg:1.0, med:0.9 },
-  { date:'May 11–17', avg:1.3, med:0.9 },
-  { date:'May 18–21', avg:0.7, med:0.5 },
+  { date:'May 7–11',  avg:1.0, med:0.9 },
+  { date:'May 12–18', avg:1.3, med:0.9 },
+  { date:'May 19–22', avg:0.5, med:0.5 },
 ];
 const ttaMonthly = [
   { date:'May 2026', avg:+(ttaDaily.reduce((s,d)=>s+d.avg,0)/ttaDaily.length).toFixed(1), med:+(ttaDaily.reduce((s,d)=>s+d.med,0)/ttaDaily.length).toFixed(1) },
 ];
 const ttaViews = { day:ttaDaily, week:ttaWeekly, month:ttaMonthly };
 const ttaKpiText = {
-  day:   { big:'0.0d', sub:'avg time to action — May 21 (1 claim)', median:'0.0d', medSub:'median time to action' },
+  day:   { big:'1.1d', sub:'avg time to action — May 21 (yesterday)', median:'0.7d', medSub:'median time to action' },
   week:  { big:'1.0d', sub:'avg time to action (May 18–21)',           median:'0.5d', medSub:'median (May 18–21)' },
   month: { big:'1.1d', sub:'avg time to action (May 2026)',            median:'0.8d', medSub:'median (May 2026)' },
 };
