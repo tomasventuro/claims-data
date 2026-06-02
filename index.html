@@ -197,7 +197,7 @@ body {
 
 <!-- TAB NAV -->
 <nav class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('operational', this)">Operational view <span class="tab-pill">live</span></button>
+  <button class="tab-btn active" onclick="switchTab('operational', this)">Operational "new" view <span class="tab-pill">live</span></button>
   <button class="tab-btn" onclick="switchTab('kpi', this)">KPIs <span class="tab-pill">May 4–Jun 1</span></button>
   <button class="tab-btn" onclick="switchTab('operational-old', this)">Operational "old" view</button>
 </nav>
@@ -207,7 +207,7 @@ body {
 
 <!-- URGENT ALERT -->
 <div class="alert-urgent">
-  <span>🚨 <strong>191 open claims past 48h without update</strong> (excl. Under QC) — top offenders: Platinum Repair ZA (14.7d), Golden Specialist SA (12.0d+), BWR Electronics SA, Certifydtek SA · Escalate immediately</span>
+  <span>🚨 <strong>115 open claims past 48h without update</strong> (excl. Under QC) — top offenders: Platinum Repair ZA (14.7d), Golden Specialist SA (12.0d+), BWR Electronics SA, Certifydtek SA · Escalate immediately</span>
   <span class="badge b-red">48h+ overdue</span>
 </div>
 
@@ -215,174 +215,114 @@ body {
 <div class="metrics-row">
   <div class="metric">
     <div class="lbl">Open claims</div>
-    <div class="val" style="color:#1a6e32">668</div>
-    <div class="sub">closed 1,127 · total 1,795</div>
+    <div class="val" style="color:#1a6e32">670</div>
+    <div class="sub">closed 1,164 · total 1,834</div>
   </div>
   <div class="metric">
     <div class="lbl">Open exposure</div>
-    <div class="val" style="color:var(--amber)">AED 1.81M</div>
-    <div class="sub">avg AED ~2,710 / open claim</div>
+    <div class="val" style="color:var(--amber)">AED 1.77M</div>
+    <div class="sub">avg AED ~2,644 / open claim</div>
   </div>
   <div class="metric">
     <div class="lbl">Repair partners</div>
-    <div class="val" style="color:var(--partner)">337</div>
-    <div class="sub">GS 223 · Platinum 114</div>
+    <div class="val" style="color:var(--partner)">342</div>
+    <div class="sub">GS 228 · Platinum 114</div>
   </div>
   <div class="metric">
     <div class="lbl">Independent</div>
-    <div class="val" style="color:var(--indep)">1,458</div>
-    <div class="sub">223+114+1,458 = 1,795 ✓</div>
+    <div class="val" style="color:var(--indep)">1,492</div>
+    <div class="sub">228+114+1,492 = 1,834 ✓</div>
   </div>
 </div>
 
 <!-- ① PIPELINE -->
-<div class="sec">① Pipeline by stage — open only <span class="chk">223+140+126+46+29+26+25+24+20+5+3+1 = 668 ✓</span></div>
+<div class="sec">① Pipeline by stage — open only, ordered by workflow <span class="chk">44+118+69+30+96+208+25+22+2+5+51 = 670 ✓</span></div>
 <div class="card" style="margin-bottom:14px">
-  <table class="pipe-tbl" aria-label="Pipeline by stage">
-    <thead>
-      <tr>
-        <th style="width:220px">Stage</th>
-        <th style="width:200px">Volume</th>
-        <th style="width:50px">N</th>
-        <th>Avg days since claim</th>
-        <th>Avg days in stage</th>
-      </tr>
-    </thead>
+  <table class="pipe-tbl">
+    <thead><tr><th style="width:230px">Stage</th><th style="width:200px">Volume</th><th style="width:50px">N</th><th style="width:120px">Avg days since claim</th><th style="width:120px">Avg days in stage</th></tr></thead>
     <tbody>
       <tr>
-        <td><div class="sname"><div class="sdot" style="background:#8b5cf6"></div>16. Under collection</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:100%;background:#8b5cf6"></div></div></td>
-        <td class="ncell">46</td><td class="dcell"><strong>20.8d</strong></td><td class="dcell"><strong style="color:var(--red)">16.8d</strong></td>
+        <td><div class="sname"><div class="sdot" style="background:#3b82f6"></div>0. Form received</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:21%;background:#3b82f6"></div></div></td>
+        <td class="ncell">44</td><td class="dcell"><strong>0.9d</strong></td><td class="dcell"><strong style="color:var(--text2)">0.9d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#10b981"></div>1. Pending collection</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:27%;background:#10b981"></div></div></td>
-        <td class="ncell">137</td><td class="dcell"><strong>19.4d</strong></td><td class="dcell"><strong style="color:var(--red)">15.4d</strong></td>
+        <td><div class="bwrap"><div class="bfill" style="width:57%;background:#10b981"></div></div></td>
+        <td class="ncell">118</td><td class="dcell"><strong>12.2d</strong></td><td class="dcell"><strong style="color:var(--red)">9.0d</strong></td>
       </tr>
       <tr>
-        <td><div class="sname"><div class="sdot" style="background:#06b6d4"></div>2. In transit</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:23%;background:#06b6d4"></div></div></td>
-        <td class="ncell">126</td><td class="dcell"><strong>22.2d</strong></td><td class="dcell"><strong style="color:var(--red)">18.2d</strong></td>
-      </tr>
-      <tr>
-        <td><div class="sname"><div class="sdot" style="background:#3b82f6"></div>0. Form received</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:18%;background:#3b82f6"></div></div></td>
-        <td class="ncell">25</td><td class="dcell"><strong>2.0d</strong></td><td class="dcell"><strong>2.0d</strong></td>
-      </tr>
-      <tr>
-        <td><div class="sname"><div class="sdot" style="background:#f59e0b"></div>3. Under QC</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:17%;background:#f59e0b"></div></div></td>
-        <td class="ncell">223</td><td class="dcell"><strong>17.0d</strong></td><td class="dcell"><strong style="color:var(--red)">13.0d</strong></td>
-      </tr>
-      <tr>
-        <td><div class="sname"><div class="sdot" style="background:#ef4444"></div>6. Ready for refund ⚡</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:0%;background:#ef4444"></div></div></td>
-        <td class="ncell">0</td><td class="dcell">—</td><td class="dcell">—</td>
+        <td><div class="sname"><div class="sdot" style="background:#8b5cf6"></div>16. Under collection</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:33%;background:#8b5cf6"></div></div></td>
+        <td class="ncell">69</td><td class="dcell"><strong>4.3d</strong></td><td class="dcell"><strong style="color:var(--amber)">1.6d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#f97316"></div>17. Collection failed</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:3%;background:#f97316"></div></div></td>
-        <td class="ncell">29</td><td class="dcell"><strong>18.7d</strong></td><td class="dcell"><strong style="color:var(--red)">14.7d</strong></td>
+        <td><div class="bwrap"><div class="bfill" style="width:14%;background:#f97316"></div></div></td>
+        <td class="ncell">30</td><td class="dcell"><strong>18.3d</strong></td><td class="dcell"><strong style="color:var(--red)">8.6d</strong></td>
       </tr>
       <tr>
-        <td><div class="sname"><div class="sdot" style="background:#a78bfa"></div>19. Expert revision</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:1%;background:#a78bfa"></div></div></td>
-        <td class="ncell">24</td><td class="dcell">18.8d</td><td class="dcell">14.8d</td>
+        <td><div class="sname"><div class="sdot" style="background:#06b6d4"></div>2. In transit</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:46%;background:#06b6d4"></div></div></td>
+        <td class="ncell">96</td><td class="dcell"><strong>9.7d</strong></td><td class="dcell"><strong style="color:var(--red)">4.9d</strong></td>
+      </tr>
+      <tr>
+        <td><div class="sname"><div class="sdot" style="background:#f59e0b"></div>3. Under QC</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:100%;background:#f59e0b"></div></div></td>
+        <td class="ncell">208</td><td class="dcell"><strong>16.4d</strong></td><td class="dcell"><strong style="color:var(--red)">7.5d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#d946ef"></div>18. Under revision</div></td>
-        <td><div class="bwrap"><div class="bfill" style="width:1%;background:#d946ef"></div></div></td>
-        <td class="ncell">20</td><td class="dcell">19.1d</td><td class="dcell">15.1d</td>
+        <td><div class="bwrap"><div class="bfill" style="width:12%;background:#d946ef"></div></div></td>
+        <td class="ncell">25</td><td class="dcell"><strong>19.4d</strong></td><td class="dcell"><strong style="color:var(--red)">5.7d</strong></td>
+      </tr>
+      <tr>
+        <td><div class="sname"><div class="sdot" style="background:#c084fc"></div>19. Expert revision</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:11%;background:#c084fc"></div></div></td>
+        <td class="ncell">22</td><td class="dcell"><strong>20.8d</strong></td><td class="dcell"><strong style="color:var(--red)">6.8d</strong></td>
+      </tr>
+      <tr>
+        <td><div class="sname"><div class="sdot" style="background:#fb7185"></div>22. Ship back u/c</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:1%;background:#fb7185"></div></div></td>
+        <td class="ncell">2</td><td class="dcell"><strong>22.6d</strong></td><td class="dcell"><strong style="color:var(--amber)">2.4d</strong></td>
+      </tr>
+      <tr>
+        <td><div class="sname"><div class="sdot" style="background:#84cc16"></div>10. Shipped back</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:2%;background:#84cc16"></div></div></td>
+        <td class="ncell">5</td><td class="dcell"><strong>23.2d</strong></td><td class="dcell"><strong style="color:var(--red)">8.1d</strong></td>
+      </tr>
+      <tr>
+        <td><div class="sname"><div class="sdot" style="background:#ef4444"></div>6. Ready for refund ⚡</div></td>
+        <td><div class="bwrap"><div class="bfill" style="width:25%;background:#ef4444"></div></div></td>
+        <td class="ncell">51</td><td class="dcell"><strong>13.2d</strong></td><td class="dcell"><strong style="color:var(--text2)">0.7d</strong></td>
       </tr>
     </tbody>
   </table>
-  <div class="note">Avg days in stage uses stage_updated_at. Also includes 22. Ship back under collection (3). Cancelled, Refunded, and Invalid excluded — see ⑥ Cancelled section for breakdown.</div>
+  <div class="note">Ordered by workflow position. Bars proportional to N (Under QC = 100% baseline). Avg days in stage uses stage_updated_at. <strong>17. Collection failed</strong> placed after Under collection (branch state), <strong>18. Under revision</strong> placed after Under QC (revision step). Cancelled, Refunded, Invalid confirmed, and Delivered are closed — see ⑥ Cancelled section. Sent to Naif, Naif under QC, Invalid claim (4.), Refund rejected: 0 open claims.</div>
 </div>
 
-<!-- ① b SUPPLIERS WITH UN-UPDATED CLAIMS BY STAGE -->
-<div class="sec">① b Suppliers with un-updated claims by stage <span class="chk">pending &gt;2d · under collection &gt;2d · in transit &gt;3d · Under QC excluded</span></div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px">
-
-  <div class="card-warn">
-    <div class="ct ct-warn">1. Pending collection &gt;2d — 106 claims</div>
-    <table class="tbl">
-      <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
-      <tbody>
-        <tr><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">39</td><td style="text-align:right;font-family:'DM Mono',monospace">12.6</td><td style="text-align:right;font-family:'DM Mono',monospace">21.9</td></tr>
-        <tr><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">19</td><td style="text-align:right;font-family:'DM Mono',monospace">11.0</td><td style="text-align:right;font-family:'DM Mono',monospace">20.1</td></tr>
-        <tr><td>SteppingStone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">9</td><td style="text-align:right;font-family:'DM Mono',monospace">4.9</td><td style="text-align:right;font-family:'DM Mono',monospace">7.9</td></tr>
-        <tr><td>Sale Zone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">8.5</td><td style="text-align:right;font-family:'DM Mono',monospace">13.0</td></tr>
-        <tr><td>Mobipro</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">7.8</td><td style="text-align:right;font-family:'DM Mono',monospace">10.8</td></tr>
-        <tr style="color:var(--text3)"><td>Dealt</td><td style="text-align:right;font-family:'DM Mono',monospace">4</td><td style="text-align:right;font-family:'DM Mono',monospace">4.4</td><td style="text-align:right;font-family:'DM Mono',monospace">5.8</td></tr>
-        <tr style="color:var(--text3)"><td>BWR Electronics</td><td style="text-align:right;font-family:'DM Mono',monospace">4</td><td style="text-align:right;font-family:'DM Mono',monospace">4.9</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
-        <tr style="color:var(--text3)"><td>Tech Zella</td><td style="text-align:right;font-family:'DM Mono',monospace">4</td><td style="text-align:right;font-family:'DM Mono',monospace">6.0</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td></tr>
-        <tr style="color:var(--text3)"><td>Gadgethub</td><td style="text-align:right;font-family:'DM Mono',monospace">3</td><td style="text-align:right;font-family:'DM Mono',monospace">7.9</td><td style="text-align:right;font-family:'DM Mono',monospace">9.0</td></tr>
-        <tr style="color:var(--text3)"><td>Star Nest</td><td style="text-align:right;font-family:'DM Mono',monospace">3</td><td style="text-align:right;font-family:'DM Mono',monospace">6.6</td><td style="text-align:right;font-family:'DM Mono',monospace">6.9</td></tr>
-        <tr style="color:var(--text3)"><td>+ 6 others</td><td style="text-align:right;font-family:'DM Mono',monospace">7</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card-warn">
-    <div class="ct ct-warn">16. Under collection &gt;2d — 9 claims</div>
-    <table class="tbl">
-      <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
-      <tbody>
-        <tr><td>Golden Specialist</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">4</td><td style="text-align:right;font-family:'DM Mono',monospace">4.5</td><td style="text-align:right;font-family:'DM Mono',monospace">7.9</td></tr>
-        <tr style="color:var(--text3)"><td>Smart Cell</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.4</td><td style="text-align:right;font-family:'DM Mono',monospace">3.4</td></tr>
-        <tr style="color:var(--text3)"><td>Platinum Repair</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.3</td><td style="text-align:right;font-family:'DM Mono',monospace">3.3</td></tr>
-        <tr style="color:var(--text3)"><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.1</td></tr>
-        <tr style="color:var(--text3)"><td>M4U Mobile</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td></tr>
-        <tr style="color:var(--text3)"><td>Mobipro</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card-warn">
-    <div class="ct ct-warn">2. In transit &gt;3d — 73 claims</div>
-    <table class="tbl">
-      <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
-      <tbody>
-        <tr><td>Golden Specialist</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">19</td><td style="text-align:right;font-family:'DM Mono',monospace">6.2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.0</td></tr>
-        <tr><td>Sale Zone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">6.4</td><td style="text-align:right;font-family:'DM Mono',monospace">9.9</td></tr>
-        <tr><td>Dealt</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">5</td><td style="text-align:right;font-family:'DM Mono',monospace">5.7</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td></tr>
-        <tr><td>FSA Trading</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">4</td><td style="text-align:right;font-family:'DM Mono',monospace">5.0</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
-        <tr><td>Renewa Tech</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">5.7</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td></tr>
-        <tr><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">9.2</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red);font-weight:600">14.0</td></tr>
-        <tr><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">9.1</td><td style="text-align:right;font-family:'DM Mono',monospace">11.5</td></tr>
-        <tr><td>SteppingStone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td><td style="text-align:right;font-family:'DM Mono',monospace">7.3</td></tr>
-        <tr><td>GreenCircle</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">8.3</td><td style="text-align:right;font-family:'DM Mono',monospace">9.3</td></tr>
-        <tr style="color:var(--text3)"><td>BWR Electronics</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">13.1</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red)">17.3</td></tr>
-        <tr style="color:var(--text3)"><td>Cellular Trading</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">14.0</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red)">20.0</td></tr>
-        <tr style="color:var(--text3)"><td>+ 13 others</td><td style="text-align:right;font-family:'DM Mono',monospace">22</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
 <!-- ② STALENESS -->
 <div class="sec">② Staleness — priority action</div>
 <div class="stale-top">
   <div class="card-urgent">
     <div class="ct ct-red">🚨 Not updated in 48h+ — action required</div>
     <div class="pnums">
-      <div><div class="pnl" style="color:var(--red)">critical claims</div><div class="bignum" style="color:var(--red)">191</div></div>
-      <div><div class="pnl" style="color:var(--red)">% of open</div><div class="bignum" style="color:var(--red)">29%</div></div>
+      <div><div class="pnl" style="color:var(--red)">critical claims</div><div class="bignum" style="color:var(--red)">115</div></div>
+      <div><div class="pnl" style="color:var(--red)">% of open</div><div class="bignum" style="color:var(--red)">17%</div></div>
     </div>
-    <div class="row-r"><span>2. In transit</span><span class="badge b-red">92 claims</span></div>
+    <div class="row-r"><span>2. In transit</span><span class="badge b-red">55 claims</span></div>
     <div class="row-r"><span>17. Collection failed</span><span class="badge b-red">24 claims</span></div>
-    <div class="row-r"><span>1. Pending collection</span><span class="badge b-red">21 claims</span></div>
-    <div class="row-r"><span>18. Under revision</span><span class="badge b-red">16 claims</span></div>
-    <div class="row-r"><span>6. Ready for refund</span><span class="badge b-red">14 claims</span></div>
-    <div class="row-r"><span>19. Expert revision</span><span class="badge b-red">13 claims</span></div>
-    <div class="row-r"><span>10. Shipped back + other</span><span class="badge b-red">9 claims</span></div>
+    <div class="row-r"><span>18. Under revision</span><span class="badge b-red">14 claims</span></div>
+    <div class="row-r"><span>1. Pending collection</span><span class="badge b-red">13 claims</span></div>
+    <div class="row-r"><span>10. Shipped back</span><span class="badge b-red">5 claims</span></div>
+    <div class="row-r"><span>19. Expert revision + other</span><span class="badge b-red">4 claims</span></div>
     <div class="note-r">Worst offender: Platinum Repair ZA (HRN13d, 0zccCW — 14.7d). Golden Specialist SA cluster at 12.0d. Certifydtek SA has the most individual claims stale. Escalate all immediately.</div>
   </div>
   <div class="card-warn">
     <div class="ct ct-warn">Not updated in 24h+</div>
     <div class="pnums">
-      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">215</div></div>
-      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">32%</div></div>
+      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">167</div></div>
+      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">25%</div></div>
     </div>
     <div class="row-w"><span>2. In transit</span><span class="badge b-amber">97</span></div>
     <div class="row-w"><span>17. Collection failed</span><span class="badge b-amber">26</span></div>
@@ -547,46 +487,33 @@ body {
 </div>
 
 <!-- ⑤ COUNTRIES -->
-<div class="sec">⑤ By country <span class="chk">889+473+424+4+3+1+1 = 1,795 ✓</span></div>
+<div class="sec">⑤ By country — open only <span class="chk">340+202+125+3+0+0+0 = 670 ✓</span></div>
 <div class="wide-3">
   <div class="card">
-    <div class="ct">Saudi Arabia <span class="chk">46.6% of total</span></div>
-    <div class="bignum" style="color:#1565c0;margin-bottom:8px">889 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 49.5% of total</span></div>
-    <div class="row"><span>16. Under collection</span><strong>—</strong></div>
-    <div class="row"><span>11. Cancelled</span><strong>172</strong></div>
-    <div class="row"><span>1. Pending collection</span><strong>—</strong></div>
-    <div class="row"><span>Other open stages</span><strong>—</strong></div>
-    <div class="note">Dominant market. Majority of stale claims are SA — Golden Specialist, Certifydtek, BWR Electronics cluster.</div>
+    <div class="ct">Saudi Arabia</div>
+    <div class="bignum" style="color:#1565c0;margin-bottom:8px">340 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 50.7% of open</span></div>
+    <div class="note" style="margin:0;padding:0">total 909 claims (incl. closed)</div>
   </div>
   <div class="card">
-    <div class="ct">United Arab Emirates <span class="chk">27.3% of total</span></div>
-    <div class="bignum" style="color:#065f46;margin-bottom:8px">473 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 26.4% of total</span></div>
-    <div class="row"><span>11. Cancelled</span><strong>101</strong></div>
-    <div class="row"><span>Open stages</span><strong>225</strong></div>
-    <div class="note">101 cancelled (31% cancel rate in UAE). Nisar Line cluster stale at 286h in transit.</div>
+    <div class="ct">United Arab Emirates</div>
+    <div class="bignum" style="color:#065f46;margin-bottom:8px">202 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 30.1% of open</span></div>
+    <div class="note" style="margin:0;padding:0">total 489 claims (incl. closed)</div>
   </div>
   <div class="card">
-    <div class="ct">South Africa <span class="chk">25.8% of total</span></div>
-    <div class="bignum" style="color:#5b21b6;margin-bottom:8px">424 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 23.6% of total</span></div>
-    <div class="row"><span>11. Cancelled</span><strong>70</strong></div>
-    <div class="row"><span>Open stages</span><strong>238</strong></div>
-    <div class="note">Worst staleness in absolute terms — Platinum Repair top cluster at 353h. Multiple suppliers (Certifydtek, Tauseef World, Sale Zone) with very long stale times.</div>
+    <div class="ct">South Africa</div>
+    <div class="bignum" style="color:#5b21b6;margin-bottom:8px">125 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 18.7% of open</span></div>
+    <div class="note" style="margin:0;padding:0">total 427 claims (incl. closed)</div>
   </div>
-</div>
-<div class="card" style="margin-bottom:14px">
-  <div class="ct">Hong Kong · Thailand</div>
-  <div class="row"><span>Hong Kong</span><strong>2 claims</strong></div>
-  <div class="row"><span>Thailand</span><strong>1 claim</strong></div>
 </div>
 
 <!-- ⑥ CANCELLED -->
-<div class="sec">⑥ Cancelled — 344 claims <span class="chk">565+107+91 = 763 ✓</span></div>
+<div class="sec">⑥ Cancelled — 344 claims <span class="chk">567+108+92 = 767 ✓</span></div>
 <div class="wide-2" style="margin-bottom:12px">
   <div class="card-cancel">
     <div class="ct ct-c">By claim reason <span class="chk">296+47+23 = 366 ✓</span></div>
     <div class="note" style="margin-bottom:10px">cancellation_reason field not populated in claim_cancellation_details — using sub_type as proxy</div>
-    <div class="sr"><div class="sl">Issue with device</div><div class="bw"><div class="bf" style="width:100%;background:#d6d3d1"></div></div><div class="sn">565</div></div>
-    <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:15%;background:#d6d3d1"></div></div><div class="sn">91</div></div>
+    <div class="sr"><div class="sl">Issue with device</div><div class="bw"><div class="bf" style="width:100%;background:#d6d3d1"></div></div><div class="sn">567</div></div>
+    <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:15%;background:#d6d3d1"></div></div><div class="sn">92</div></div>
     <div class="sr"><div class="sl">Change of mind</div><div class="bw"><div class="bf" style="width:7%;background:#d6d3d1"></div></div><div class="sn">20</div></div>
   </div>
   <div class="card-cancel">
