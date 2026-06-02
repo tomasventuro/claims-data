@@ -187,10 +187,10 @@ body {
 <div class="header">
   <div>
     <h1>Revibe <span>Claims</span> Dashboard</h1>
-    <div class="header-sub">WHERE claim_date &gt; '2026-05-03' · claim_type IS NOT NULL</div>
+    <div class="header-sub">WHERE claim_type IS NOT NULL · type = 'Return'</div>
   </div>
   <div class="header-right">
-    <div class="ts">Last updated: May 22, 2026 · 9:00am UAE · UAE time</div>
+    <div class="ts">Last updated: Jun 2, 2026 · 9:00am UAE · UAE time</div>
     <div class="vpill">✓ all cross-checks passed · 1,192 unique claims</div>
   </div>
 </div>
@@ -198,7 +198,8 @@ body {
 <!-- TAB NAV -->
 <nav class="tab-nav">
   <button class="tab-btn active" onclick="switchTab('operational', this)">Operational view <span class="tab-pill">live</span></button>
-  <button class="tab-btn" onclick="switchTab('kpi', this)">KPIs <span class="tab-pill">May 4–22</span></button>
+  <button class="tab-btn" onclick="switchTab('kpi', this)">KPIs <span class="tab-pill">May 4–Jun 1</span></button>
+  <button class="tab-btn" onclick="switchTab('operational-old', this)">Operational "old" view</button>
 </nav>
 
 <!-- TAB: OPERATIONAL VIEW -->
@@ -206,7 +207,7 @@ body {
 
 <!-- URGENT ALERT -->
 <div class="alert-urgent">
-  <span>🚨 <strong>84 open claims past 48h without update</strong> — top offenders: Platinum Repair ZA (353h), Golden Specialist SA (288h+), BWR Electronics SA, Certifydtek SA · Escalate immediately</span>
+  <span>🚨 <strong>191 open claims past 48h without update</strong> (excl. Under QC) — top offenders: Platinum Repair ZA (14.7d), Golden Specialist SA (12.0d+), BWR Electronics SA, Certifydtek SA · Escalate immediately</span>
   <span class="badge b-red">48h+ overdue</span>
 </div>
 
@@ -214,28 +215,28 @@ body {
 <div class="metrics-row">
   <div class="metric">
     <div class="lbl">Open claims</div>
-    <div class="val" style="color:#1a6e32">711</div>
-    <div class="sub">closed 623 · total 1,334</div>
+    <div class="val" style="color:#1a6e32">668</div>
+    <div class="sub">closed 1,127 · total 1,795</div>
   </div>
   <div class="metric">
     <div class="lbl">Open exposure</div>
-    <div class="val" style="color:var(--amber)">AED 1.97M</div>
-    <div class="sub">avg AED ~2,771 / open claim</div>
+    <div class="val" style="color:var(--amber)">AED 1.81M</div>
+    <div class="sub">avg AED ~2,710 / open claim</div>
   </div>
   <div class="metric">
     <div class="lbl">Repair partners</div>
-    <div class="val" style="color:var(--partner)">243</div>
-    <div class="sub">GS 155 · Platinum 88</div>
+    <div class="val" style="color:var(--partner)">337</div>
+    <div class="sub">GS 223 · Platinum 114</div>
   </div>
   <div class="metric">
     <div class="lbl">Independent</div>
-    <div class="val" style="color:var(--indep)">1,091</div>
-    <div class="sub">155+88+1,091 = 1,334 ✓</div>
+    <div class="val" style="color:var(--indep)">1,458</div>
+    <div class="sub">223+114+1,458 = 1,795 ✓</div>
   </div>
 </div>
 
 <!-- ① PIPELINE -->
-<div class="sec">① Pipeline by stage — open only <span class="chk">246+146+102+93+79+23+10+9+2+1 = 711 ✓</span></div>
+<div class="sec">① Pipeline by stage — open only <span class="chk">223+140+126+46+29+26+25+24+20+5+3+1 = 668 ✓</span></div>
 <div class="card" style="margin-bottom:14px">
   <table class="pipe-tbl" aria-label="Pipeline by stage">
     <thead>
@@ -251,27 +252,27 @@ body {
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#8b5cf6"></div>16. Under collection</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:100%;background:#8b5cf6"></div></div></td>
-        <td class="ncell">246</td><td class="dcell"><strong>8.5d</strong></td><td class="dcell"><strong style="color:var(--red)">4.5d</strong></td>
+        <td class="ncell">46</td><td class="dcell"><strong>20.8d</strong></td><td class="dcell"><strong style="color:var(--red)">16.8d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#10b981"></div>1. Pending collection</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:27%;background:#10b981"></div></div></td>
-        <td class="ncell">79</td><td class="dcell"><strong>7.3d</strong></td><td class="dcell"><strong style="color:var(--red)">6.2d</strong></td>
+        <td class="ncell">137</td><td class="dcell"><strong>19.4d</strong></td><td class="dcell"><strong style="color:var(--red)">15.4d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#06b6d4"></div>2. In transit</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:23%;background:#06b6d4"></div></div></td>
-        <td class="ncell">146</td><td class="dcell"><strong>10.5d</strong></td><td class="dcell"><strong style="color:var(--red)">7.9d</strong></td>
+        <td class="ncell">126</td><td class="dcell"><strong>22.2d</strong></td><td class="dcell"><strong style="color:var(--red)">18.2d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#3b82f6"></div>0. Form received</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:18%;background:#3b82f6"></div></div></td>
-        <td class="ncell">93</td><td class="dcell"><strong>2.8d</strong></td><td class="dcell"><strong>2.8d</strong></td>
+        <td class="ncell">25</td><td class="dcell"><strong>2.0d</strong></td><td class="dcell"><strong>2.0d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#f59e0b"></div>3. Under QC</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:17%;background:#f59e0b"></div></div></td>
-        <td class="ncell">102</td><td class="dcell"><strong>12.4d</strong></td><td class="dcell"><strong style="color:var(--red)">6.0d</strong></td>
+        <td class="ncell">223</td><td class="dcell"><strong>17.0d</strong></td><td class="dcell"><strong style="color:var(--red)">13.0d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#ef4444"></div>6. Ready for refund ⚡</div></td>
@@ -281,17 +282,17 @@ body {
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#f97316"></div>17. Collection failed</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:3%;background:#f97316"></div></div></td>
-        <td class="ncell">23</td><td class="dcell"><strong>10.5d</strong></td><td class="dcell"><strong style="color:var(--red)">5.9d</strong></td>
+        <td class="ncell">29</td><td class="dcell"><strong>18.7d</strong></td><td class="dcell"><strong style="color:var(--red)">14.7d</strong></td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#a78bfa"></div>19. Expert revision</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:1%;background:#a78bfa"></div></div></td>
-        <td class="ncell">10</td><td class="dcell">14.4d</td><td class="dcell">3.5d</td>
+        <td class="ncell">24</td><td class="dcell">18.8d</td><td class="dcell">14.8d</td>
       </tr>
       <tr>
         <td><div class="sname"><div class="sdot" style="background:#d946ef"></div>18. Under revision</div></td>
         <td><div class="bwrap"><div class="bfill" style="width:1%;background:#d946ef"></div></div></td>
-        <td class="ncell">9</td><td class="dcell">13.7d</td><td class="dcell">4.0d</td>
+        <td class="ncell">20</td><td class="dcell">19.1d</td><td class="dcell">15.1d</td>
       </tr>
     </tbody>
   </table>
@@ -299,212 +300,192 @@ body {
 </div>
 
 <!-- ① b SUPPLIERS WITH UN-UPDATED CLAIMS BY STAGE -->
-<div class="sec">① b Suppliers with un-updated claims by stage <span class="chk">pending &gt;2d · under collection &gt;2d · in transit &gt;3d · under QC &gt;3d</span></div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:14px">
+<div class="sec">① b Suppliers with un-updated claims by stage <span class="chk">pending &gt;2d · under collection &gt;2d · in transit &gt;3d · Under QC excluded</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px">
 
   <div class="card-warn">
-    <div class="ct ct-warn">1. Pending collection &gt;2d — 53 claims</div>
+    <div class="ct ct-warn">1. Pending collection &gt;2d — 106 claims</div>
     <table class="tbl">
       <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
       <tbody>
-        <tr><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">28</td><td style="text-align:right;font-family:'DM Mono',monospace">7.6</td><td style="text-align:right;font-family:'DM Mono',monospace">13.9</td></tr>
-        <tr><td>FSA Trading</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">11</td><td style="text-align:right;font-family:'DM Mono',monospace">7.4</td><td style="text-align:right;font-family:'DM Mono',monospace">13.9</td></tr>
-        <tr><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">5</td><td style="text-align:right;font-family:'DM Mono',monospace">6.5</td><td style="text-align:right;font-family:'DM Mono',monospace">8.1</td></tr>
-        <tr><td>Revibe Repair ZA</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">2</td><td style="text-align:right;font-family:'DM Mono',monospace">11.0</td><td style="text-align:right;font-family:'DM Mono',monospace">12.1</td></tr>
-        <tr><td>Discount Lane</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">2</td><td style="text-align:right;font-family:'DM Mono',monospace">3.9</td><td style="text-align:right;font-family:'DM Mono',monospace">4.8</td></tr>
-        <tr style="color:var(--text3)"><td>Gadgethub</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">12.0</td><td style="text-align:right;font-family:'DM Mono',monospace">12.0</td></tr>
-        <tr style="color:var(--text3)"><td>SteppingStone</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">12.0</td><td style="text-align:right;font-family:'DM Mono',monospace">12.0</td></tr>
-        <tr style="color:var(--text3)"><td>Al Nafees</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">9.0</td><td style="text-align:right;font-family:'DM Mono',monospace">9.0</td></tr>
-        <tr style="color:var(--text3)"><td>Sabir Karim Phones</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
-        <tr style="color:var(--text3)"><td>Mobipro</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">6.0</td><td style="text-align:right;font-family:'DM Mono',monospace">6.0</td></tr>
+        <tr><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">39</td><td style="text-align:right;font-family:'DM Mono',monospace">12.6</td><td style="text-align:right;font-family:'DM Mono',monospace">21.9</td></tr>
+        <tr><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">19</td><td style="text-align:right;font-family:'DM Mono',monospace">11.0</td><td style="text-align:right;font-family:'DM Mono',monospace">20.1</td></tr>
+        <tr><td>SteppingStone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">9</td><td style="text-align:right;font-family:'DM Mono',monospace">4.9</td><td style="text-align:right;font-family:'DM Mono',monospace">7.9</td></tr>
+        <tr><td>Sale Zone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">8.5</td><td style="text-align:right;font-family:'DM Mono',monospace">13.0</td></tr>
+        <tr><td>Mobipro</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">7.8</td><td style="text-align:right;font-family:'DM Mono',monospace">10.8</td></tr>
+        <tr style="color:var(--text3)"><td>Dealt</td><td style="text-align:right;font-family:'DM Mono',monospace">4</td><td style="text-align:right;font-family:'DM Mono',monospace">4.4</td><td style="text-align:right;font-family:'DM Mono',monospace">5.8</td></tr>
+        <tr style="color:var(--text3)"><td>BWR Electronics</td><td style="text-align:right;font-family:'DM Mono',monospace">4</td><td style="text-align:right;font-family:'DM Mono',monospace">4.9</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
+        <tr style="color:var(--text3)"><td>Tech Zella</td><td style="text-align:right;font-family:'DM Mono',monospace">4</td><td style="text-align:right;font-family:'DM Mono',monospace">6.0</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td></tr>
+        <tr style="color:var(--text3)"><td>Gadgethub</td><td style="text-align:right;font-family:'DM Mono',monospace">3</td><td style="text-align:right;font-family:'DM Mono',monospace">7.9</td><td style="text-align:right;font-family:'DM Mono',monospace">9.0</td></tr>
+        <tr style="color:var(--text3)"><td>Star Nest</td><td style="text-align:right;font-family:'DM Mono',monospace">3</td><td style="text-align:right;font-family:'DM Mono',monospace">6.6</td><td style="text-align:right;font-family:'DM Mono',monospace">6.9</td></tr>
+        <tr style="color:var(--text3)"><td>+ 6 others</td><td style="text-align:right;font-family:'DM Mono',monospace">7</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card-warn">
-    <div class="ct ct-warn">16. Under collection &gt;2d — 109 claims</div>
+    <div class="ct ct-warn">16. Under collection &gt;2d — 9 claims</div>
     <table class="tbl">
       <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
       <tbody>
-        <tr><td>Golden Specialist</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">34</td><td style="text-align:right;font-family:'DM Mono',monospace">7.6</td><td style="text-align:right;font-family:'DM Mono',monospace">12.2</td></tr>
-        <tr><td>Platinum Repair</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">12</td><td style="text-align:right;font-family:'DM Mono',monospace">11.2</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red);font-weight:600">14.8</td></tr>
-        <tr><td>Sale Zone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">11</td><td style="text-align:right;font-family:'DM Mono',monospace">5.4</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
-        <tr><td>SteppingStone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">10</td><td style="text-align:right;font-family:'DM Mono',monospace">5.7</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
-        <tr><td>Dealt</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">9</td><td style="text-align:right;font-family:'DM Mono',monospace">5.7</td><td style="text-align:right;font-family:'DM Mono',monospace">5.9</td></tr>
-        <tr><td>BWR Electronics</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">6</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td><td style="text-align:right;font-family:'DM Mono',monospace">9.1</td></tr>
-        <tr style="color:var(--text3)"><td>Tech Zella</td><td style="text-align:right;font-family:'DM Mono',monospace">3</td><td style="text-align:right;font-family:'DM Mono',monospace">6.4</td><td style="text-align:right;font-family:'DM Mono',monospace">11.0</td></tr>
-        <tr style="color:var(--text3)"><td>GreenCircle</td><td style="text-align:right;font-family:'DM Mono',monospace">3</td><td style="text-align:right;font-family:'DM Mono',monospace">5.8</td><td style="text-align:right;font-family:'DM Mono',monospace">5.8</td></tr>
-        <tr style="color:var(--text3)"><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace">3</td><td style="text-align:right;font-family:'DM Mono',monospace">4.6</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
-        <tr style="color:var(--text3)"><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.9</td><td style="text-align:right;font-family:'DM Mono',monospace">11.8</td></tr>
-        <tr style="color:var(--text3)"><td>+ 13 others</td><td style="text-align:right;font-family:'DM Mono',monospace">16</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
+        <tr><td>Golden Specialist</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">4</td><td style="text-align:right;font-family:'DM Mono',monospace">4.5</td><td style="text-align:right;font-family:'DM Mono',monospace">7.9</td></tr>
+        <tr style="color:var(--text3)"><td>Smart Cell</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.4</td><td style="text-align:right;font-family:'DM Mono',monospace">3.4</td></tr>
+        <tr style="color:var(--text3)"><td>Platinum Repair</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.3</td><td style="text-align:right;font-family:'DM Mono',monospace">3.3</td></tr>
+        <tr style="color:var(--text3)"><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.1</td></tr>
+        <tr style="color:var(--text3)"><td>M4U Mobile</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td></tr>
+        <tr style="color:var(--text3)"><td>Mobipro</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td><td style="text-align:right;font-family:'DM Mono',monospace">3.0</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card-warn">
-    <div class="ct ct-warn">2. In transit &gt;3d — 55 claims</div>
+    <div class="ct ct-warn">2. In transit &gt;3d — 73 claims</div>
     <table class="tbl">
       <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
       <tbody>
-        <tr><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">13</td><td style="text-align:right;font-family:'DM Mono',monospace">8.8</td><td style="text-align:right;font-family:'DM Mono',monospace">13.0</td></tr>
-        <tr><td>BWR Electronics</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">10.9</td><td style="text-align:right;font-family:'DM Mono',monospace">11.8</td></tr>
-        <tr><td>SteppingStone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">10.4</td><td style="text-align:right;font-family:'DM Mono',monospace">13.1</td></tr>
-        <tr><td>Nisar Line</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">4</td><td style="text-align:right;font-family:'DM Mono',monospace">12.8</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red);font-weight:600">13.7</td></tr>
-        <tr><td>Mobipro</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">4</td><td style="text-align:right;font-family:'DM Mono',monospace">10.2</td><td style="text-align:right;font-family:'DM Mono',monospace">13.0</td></tr>
-        <tr><td>Al Nakhlah</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">7.9</td><td style="text-align:right;font-family:'DM Mono',monospace">9.0</td></tr>
-        <tr style="color:var(--text3)"><td>Sale Zone</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.3</td><td style="text-align:right;font-family:'DM Mono',monospace">11.7</td></tr>
-        <tr style="color:var(--text3)"><td>SK World</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.4</td><td style="text-align:right;font-family:'DM Mono',monospace">8.9</td></tr>
-        <tr style="color:var(--text3)"><td>Tauseef World</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.4</td><td style="text-align:right;font-family:'DM Mono',monospace">8.9</td></tr>
-        <tr style="color:var(--text3)"><td>Cellular Trading</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.0</td><td style="text-align:right;font-family:'DM Mono',monospace">8.0</td></tr>
-        <tr style="color:var(--text3)"><td>+ 8 others</td><td style="text-align:right;font-family:'DM Mono',monospace">9</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card-warn">
-    <div class="ct ct-warn">3. Under QC &gt;3d — 31 claims</div>
-    <table class="tbl">
-      <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
-      <tbody>
-        <tr><td>Tauseef World</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">7</td><td style="text-align:right;font-family:'DM Mono',monospace">7.4</td><td style="text-align:right;font-family:'DM Mono',monospace">10.9</td></tr>
-        <tr><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">5</td><td style="text-align:right;font-family:'DM Mono',monospace">6.0</td><td style="text-align:right;font-family:'DM Mono',monospace">6.9</td></tr>
-        <tr><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">8.2</td><td style="text-align:right;font-family:'DM Mono',monospace">10.9</td></tr>
-        <tr><td>Al Nakhlah</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">6.0</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td></tr>
-        <tr style="color:var(--text3)"><td>MEC Trading</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">7.2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.0</td></tr>
-        <tr style="color:var(--text3)"><td>Jewel Oasis</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">6.0</td><td style="text-align:right;font-family:'DM Mono',monospace">7.1</td></tr>
-        <tr style="color:var(--text3)"><td>Nisar Line</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red);font-weight:600">12.1</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red);font-weight:600">12.1</td></tr>
-        <tr style="color:var(--text3)"><td>Renewa Tech</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">9.0</td><td style="text-align:right;font-family:'DM Mono',monospace">9.0</td></tr>
-        <tr style="color:var(--text3)"><td>FSA Trading</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">10.8</td><td style="text-align:right;font-family:'DM Mono',monospace">10.8</td></tr>
-        <tr style="color:var(--text3)"><td>Tasal General</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">10.9</td><td style="text-align:right;font-family:'DM Mono',monospace">10.9</td></tr>
-        <tr style="color:var(--text3)"><td>+ 5 others</td><td style="text-align:right;font-family:'DM Mono',monospace">6</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
+        <tr><td>Golden Specialist</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">19</td><td style="text-align:right;font-family:'DM Mono',monospace">6.2</td><td style="text-align:right;font-family:'DM Mono',monospace">8.0</td></tr>
+        <tr><td>Sale Zone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">7</td><td style="text-align:right;font-family:'DM Mono',monospace">6.4</td><td style="text-align:right;font-family:'DM Mono',monospace">9.9</td></tr>
+        <tr><td>Dealt</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">5</td><td style="text-align:right;font-family:'DM Mono',monospace">5.7</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td></tr>
+        <tr><td>FSA Trading</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">4</td><td style="text-align:right;font-family:'DM Mono',monospace">5.0</td><td style="text-align:right;font-family:'DM Mono',monospace">6.8</td></tr>
+        <tr><td>Renewa Tech</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">5.7</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td></tr>
+        <tr><td>Certifydtek</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">9.2</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red);font-weight:600">14.0</td></tr>
+        <tr><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">9.1</td><td style="text-align:right;font-family:'DM Mono',monospace">11.5</td></tr>
+        <tr><td>SteppingStone</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">7.0</td><td style="text-align:right;font-family:'DM Mono',monospace">7.3</td></tr>
+        <tr><td>GreenCircle</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600">3</td><td style="text-align:right;font-family:'DM Mono',monospace">8.3</td><td style="text-align:right;font-family:'DM Mono',monospace">9.3</td></tr>
+        <tr style="color:var(--text3)"><td>BWR Electronics</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">13.1</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red)">17.3</td></tr>
+        <tr style="color:var(--text3)"><td>Cellular Trading</td><td style="text-align:right;font-family:'DM Mono',monospace">2</td><td style="text-align:right;font-family:'DM Mono',monospace">14.0</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red)">20.0</td></tr>
+        <tr style="color:var(--text3)"><td>+ 13 others</td><td style="text-align:right;font-family:'DM Mono',monospace">22</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
       </tbody>
     </table>
   </div>
 
 </div>
-
 <!-- ② STALENESS -->
 <div class="sec">② Staleness — priority action</div>
 <div class="stale-top">
   <div class="card-urgent">
     <div class="ct ct-red">🚨 Not updated in 48h+ — action required</div>
     <div class="pnums">
-      <div><div class="pnl" style="color:var(--red)">critical claims</div><div class="bignum" style="color:var(--red)">84</div></div>
-      <div><div class="pnl" style="color:var(--red)">% of open</div><div class="bignum" style="color:var(--red)">12%</div></div>
+      <div><div class="pnl" style="color:var(--red)">critical claims</div><div class="bignum" style="color:var(--red)">191</div></div>
+      <div><div class="pnl" style="color:var(--red)">% of open</div><div class="bignum" style="color:var(--red)">29%</div></div>
     </div>
-    <div class="row-r"><span>16. Under collection</span><span class="badge b-red">228 claims</span></div>
-    <div class="row-r"><span>1. Pending collection</span><span class="badge b-red">69 claims</span></div>
-    <div class="row-r"><span>2. In transit</span><span class="badge b-red">64 claims</span></div>
-    <div class="row-r"><span>3. Under QC</span><span class="badge b-red">44 claims</span></div>
-    <div class="note-r">Worst offender: Platinum Repair ZA (HRN13d, 0zccCW — 353h). Golden Specialist SA cluster at 288h. Certifydtek SA has the most individual claims stale. Escalate all immediately.</div>
+    <div class="row-r"><span>2. In transit</span><span class="badge b-red">92 claims</span></div>
+    <div class="row-r"><span>17. Collection failed</span><span class="badge b-red">24 claims</span></div>
+    <div class="row-r"><span>1. Pending collection</span><span class="badge b-red">21 claims</span></div>
+    <div class="row-r"><span>18. Under revision</span><span class="badge b-red">16 claims</span></div>
+    <div class="row-r"><span>6. Ready for refund</span><span class="badge b-red">14 claims</span></div>
+    <div class="row-r"><span>19. Expert revision</span><span class="badge b-red">13 claims</span></div>
+    <div class="row-r"><span>10. Shipped back + other</span><span class="badge b-red">9 claims</span></div>
+    <div class="note-r">Worst offender: Platinum Repair ZA (HRN13d, 0zccCW — 14.7d). Golden Specialist SA cluster at 12.0d. Certifydtek SA has the most individual claims stale. Escalate all immediately.</div>
   </div>
   <div class="card-warn">
     <div class="ct ct-warn">Not updated in 24h+</div>
     <div class="pnums">
-      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">351</div></div>
-      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">49%</div></div>
+      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">215</div></div>
+      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">32%</div></div>
     </div>
-    <div class="row-w"><span>16. Under collection</span><span class="badge b-amber">228</span></div>
-    <div class="row-w"><span>1. Pending collection</span><span class="badge b-amber">69</span></div>
-    <div class="row-w"><span>2. In transit</span><span class="badge b-amber">64</span></div>
-    <div class="row-w"><span>3. Under QC</span><span class="badge b-amber">44</span></div>
-    <div class="row-w"><span>0. Form received</span><span class="badge b-amber">21</span></div>
-    <div class="row-w"><span>17. Collection failed + other</span><span class="badge b-amber">13</span></div>
-    <div class="note-w">Situation critical — 62% of open claims haven't been touched in 24h+. Prior snapshot was 23%. Systemic escalation needed.</div>
+    <div class="row-w"><span>2. In transit</span><span class="badge b-amber">97</span></div>
+    <div class="row-w"><span>17. Collection failed</span><span class="badge b-amber">26</span></div>
+    <div class="row-w"><span>1. Pending collection</span><span class="badge b-amber">24</span></div>
+    <div class="row-w"><span>6. Ready for refund</span><span class="badge b-amber">24</span></div>
+    <div class="row-w"><span>18. Under revision</span><span class="badge b-amber">16</span></div>
+    <div class="row-w"><span>19. Expert revision</span><span class="badge b-amber">15</span></div>
+    <div class="row-w"><span>10. Shipped back + other</span><span class="badge b-amber">8</span></div>
+    <div class="row-w"><span>0. Form received</span><span class="badge b-amber">3</span></div>
+    <div class="note-w">Under QC excluded (normal to not update in first 48h).</div>
   </div>
 </div>
 
 <div class="card" style="margin-bottom:14px">
-  <div class="ct">Top 48h+ stale open claims — sorted by hours stale (showing worst 80)</div>
+  <div class="ct">Top 48h+ stale open claims — sorted by days stale (showing worst 80)</div>
   <div class="scroll-x">
   <table class="tbl" aria-label="Stale open claims">
-    <thead><tr><th>Claim ID</th><th>Order Help</th><th>Stage</th><th>Country</th><th>Supplier</th><th>Reason</th><th>Hours stale</th><th>AED</th></tr></thead>
+    <thead><tr><th>Claim ID</th><th>Order Help</th><th>Stage</th><th>Country</th><th>Supplier</th><th>Reason</th><th>Days stale</th><th>AED</th></tr></thead>
     <tbody>
-      <tr class="critical"><td class="mono" style="color:var(--red)">HRN13d</td><td class="mono">ZA-50561</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">353h ⚠</span></td><td class="mono">5,199</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">0zccCW</td><td class="mono">ZA-48315</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">353h ⚠</span></td><td class="mono">3,799</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">UJhYo0</td><td class="mono">ZA-50691</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">331h ⚠</span></td><td class="mono">799</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">v9dFcO</td><td class="mono">ZA-50721</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">328h ⚠</span></td><td class="mono">3,999</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">92vCkU</td><td class="mono">SA-116883</td><td>In transit</td><td>Saudi Arabia</td><td>Discount Lane</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">328h ⚠</span></td><td class="mono">1,457</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">xfFve5</td><td class="mono">ZA-50907</td><td>In transit</td><td>South Africa</td><td>Nisar Line</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">325h ⚠</span></td><td class="mono">4,699</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">6Hz5dC</td><td class="mono">ZA-51125</td><td>In transit</td><td>South Africa</td><td>Nisar Line</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">316h ⚠</span></td><td class="mono">5,299</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">3tbJjq</td><td class="mono">SA-114387</td><td>In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">311h ⚠</span></td><td class="mono">1,097</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">ANIqy8</td><td class="mono">ZA-48981</td><td>In transit</td><td>South Africa</td><td>Certifydtek</td><td>Wrong device</td><td><span class="hrs" style="color:var(--red)">310h ⚠</span></td><td class="mono">1,799</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">GPd7sw</td><td class="mono">ZA-51746</td><td>In transit</td><td>South Africa</td><td>Mobipro</td><td>Issue</td><td><span class="hrs" style="color:var(--red)">308h ⚠</span></td><td class="mono">1,499</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">g8dvJu</td><td class="mono">ZA-49186</td><td>In transit</td><td>South Africa</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs" style="color:var(--red)">305h ⚠</span></td><td class="mono">3,899</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">3siLZ9</td><td class="mono">ZA-49308</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">304h ⚠</span></td><td class="mono">2,899</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">foovQ3</td><td class="mono">SA-117240</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">288h ⚠</span></td><td class="mono">651</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">Yrgnl9</td><td class="mono">SA-117761</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">288h ⚠</span></td><td class="mono">1,170</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">SJ9qn5</td><td class="mono">SA-117554</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">288h ⚠</span></td><td class="mono">2,735</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">DVYd6Z</td><td class="mono">SA-117495</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">288h ⚠</span></td><td class="mono">1,232</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">Lsn5iL</td><td class="mono">SA-116572</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">288h ⚠</span></td><td class="mono">1,277</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">2Jn7My</td><td class="mono">ZA-52088</td><td>Pending collection</td><td>South Africa</td><td>Revibe Repair ZA</td><td>Wrong device</td><td><span class="hrs" style="color:var(--red)">287h ⚠</span></td><td class="mono">3,999</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">4EBmGo</td><td class="mono">SA-116871</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">287h ⚠</span></td><td class="mono">1,664</td></tr>
-      <tr class="critical"><td class="mono" style="color:var(--red)">rdr6Bw</td><td class="mono">ZA-50591</td><td>In transit</td><td>South Africa</td><td>FSA Trading</td><td>Wrong device</td><td><span class="hrs" style="color:var(--red)">287h ⚠</span></td><td class="mono">16,899</td></tr>
-      <tr><td class="mono">re0DFZ</td><td class="mono">91459</td><td>In transit</td><td>UAE</td><td>Nisar Line</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">286h</span></td><td class="mono">800</td></tr>
-      <tr><td class="mono">Hi8xLw</td><td class="mono">91277</td><td>In transit</td><td>UAE</td><td>Nisar Line</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">286h</span></td><td class="mono">908</td></tr>
-      <tr><td class="mono">DMvlF0</td><td class="mono">91348</td><td>Under QC</td><td>UAE</td><td>Nisar Line</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">286h</span></td><td class="mono">969</td></tr>
-      <tr><td class="mono">k6DziL</td><td class="mono">SA-118211</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">285h</span></td><td class="mono">2,303</td></tr>
-      <tr><td class="mono">g2zGTo</td><td class="mono">ZA-45964</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">283h</span></td><td class="mono">4,799</td></tr>
-      <tr><td class="mono">xfUur0</td><td class="mono">SA-117004</td><td>In transit</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">280h</span></td><td class="mono">2,829</td></tr>
-      <tr><td class="mono">iqha2D</td><td class="mono">SA-117002</td><td>In transit</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">280h</span></td><td class="mono">1,844</td></tr>
-      <tr><td class="mono">UaT7vG</td><td class="mono">SA-117417</td><td>In transit</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">280h</span></td><td class="mono">1,669</td></tr>
-      <tr><td class="mono">66u4zK</td><td class="mono">SA-116972</td><td>In transit</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">280h</span></td><td class="mono">1,959</td></tr>
-      <tr><td class="mono">Nu4pUr</td><td class="mono">SA-117084</td><td>In transit</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">280h</span></td><td class="mono">1,949</td></tr>
-      <tr><td class="mono">W46Ioc</td><td class="mono">ZA-48897</td><td>In transit</td><td>South Africa</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">279h</span></td><td class="mono">4,099</td></tr>
-      <tr><td class="mono">QqM3L8</td><td class="mono">ZA-49506</td><td>In transit</td><td>South Africa</td><td>Mobipro</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">278h</span></td><td class="mono">1,399</td></tr>
-      <tr><td class="mono">6siRhP</td><td class="mono">ZA-48999</td><td>In transit</td><td>South Africa</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">277h</span></td><td class="mono">3,999</td></tr>
-      <tr><td class="mono">6O37eP</td><td class="mono">ZA-49329</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">274h</span></td><td class="mono">4,944</td></tr>
-      <tr><td class="mono">Fa11Ge</td><td class="mono">SA-116335</td><td>Under collection</td><td>Saudi Arabia</td><td>Tech Zella</td><td>Wrong device</td><td><span class="hrs" style="color:var(--amber)">260h</span></td><td class="mono">1,374</td></tr>
-      <tr><td class="mono">j4V6U4</td><td class="mono">91736</td><td>Under QC</td><td>UAE</td><td>Tauseef World</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">258h</span></td><td class="mono">737</td></tr>
-      <tr><td class="mono">C1ystg</td><td class="mono">91748</td><td>Under QC</td><td>UAE</td><td>Prime Cell</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">258h</span></td><td class="mono">1,979</td></tr>
-      <tr><td class="mono">i4Ta9w</td><td class="mono">91243</td><td>Under QC</td><td>UAE</td><td>Tasal General</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">258h</span></td><td class="mono">2,276</td></tr>
-      <tr><td class="mono">YqeTn6</td><td class="mono">ZA-48927</td><td>Under QC</td><td>South Africa</td><td>FSA Trading</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">257h</span></td><td class="mono">7,999</td></tr>
-      <tr><td class="mono">Rj8oxK</td><td class="mono">SA-117633</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">235h</span></td><td class="mono">2,639</td></tr>
-      <tr><td class="mono">BrUbT9</td><td class="mono">SA-117701</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">233h</span></td><td class="mono">789</td></tr>
-      <tr><td class="mono">QN9OAj</td><td class="mono">ZA-51923</td><td>Pending collection</td><td>South Africa</td><td>Revibe Repair ZA</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">233h</span></td><td class="mono">3,499</td></tr>
-      <tr><td class="mono">QcIg6j</td><td class="mono">SA-116359</td><td>In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">233h</span></td><td class="mono">2,114</td></tr>
-      <tr><td class="mono">Xg4cxN</td><td class="mono">ZA-50431</td><td>Pending collection</td><td>South Africa</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">216h</span></td><td class="mono">9,099</td></tr>
-      <tr><td class="mono">xvP9ga</td><td class="mono">SA-117337</td><td>Under collection</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">215h</span></td><td class="mono">1,959</td></tr>
-      <tr><td class="mono">84e57Y</td><td class="mono">SA-117368</td><td>Under collection</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">215h</span></td><td class="mono">1,089</td></tr>
-      <tr><td class="mono">pvN4uu</td><td class="mono">SA-107232</td><td>In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">215h</span></td><td class="mono">2,726</td></tr>
-      <tr><td class="mono">fBoUU2</td><td class="mono">SA-115743</td><td>In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">215h</span></td><td class="mono">2,186</td></tr>
-      <tr><td class="mono">t8r4Fm</td><td class="mono">SA-118373</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Wrong device</td><td><span class="hrs" style="color:var(--amber)">214h</span></td><td class="mono">1,559</td></tr>
-      <tr><td class="mono">B1oFqd</td><td class="mono">91867</td><td>In transit</td><td>UAE</td><td>Mobipro</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">214h</span></td><td class="mono">1,344</td></tr>
-      <tr><td class="mono">1ChtXt</td><td class="mono">SA-111216</td><td>In transit</td><td>Saudi Arabia</td><td>Almas Al Burteqali</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">214h</span></td><td class="mono">4,940</td></tr>
-      <tr><td class="mono">Ulqd84</td><td class="mono">91918</td><td>Under QC</td><td>UAE</td><td>Renewa Tech</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">214h</span></td><td class="mono">2,369</td></tr>
-      <tr><td class="mono">9zuhDL</td><td class="mono">SA-117050</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">213h</span></td><td class="mono">2,268</td></tr>
-      <tr><td class="mono">lOo9l6</td><td class="mono">ZA-52064</td><td>Under collection</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">213h</span></td><td class="mono">3,899</td></tr>
-      <tr><td class="mono">32ApP4</td><td class="mono">SA-117852</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">213h</span></td><td class="mono">773</td></tr>
-      <tr><td class="mono">e45uKp</td><td class="mono">ZA-50515</td><td>In transit</td><td>South Africa</td><td>Al Nakhlah</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">213h</span></td><td class="mono">7,944</td></tr>
-      <tr><td class="mono">tF65kw</td><td class="mono">SA-118061</td><td>Pending collection</td><td>Saudi Arabia</td><td>FSA Trading</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">212h</span></td><td class="mono">2,179</td></tr>
-      <tr><td class="mono">m8gGac</td><td class="mono">SA-118649</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">212h</span></td><td class="mono">458</td></tr>
-      <tr><td class="mono">6fJQZO</td><td class="mono">SA-118883</td><td>Under collection</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">212h</span></td><td class="mono">872</td></tr>
-      <tr><td class="mono">ClQ1CI</td><td class="mono">ZA-48388</td><td>In transit</td><td>South Africa</td><td>Electriana</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">211h</span></td><td class="mono">8,944</td></tr>
-      <tr><td class="mono">iGfD9z</td><td class="mono">ZA-49448</td><td>In transit</td><td>South Africa</td><td>SK World</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">211h</span></td><td class="mono">6,399</td></tr>
-      <tr><td class="mono">e27PNb</td><td class="mono">ZA-49238</td><td>In transit</td><td>South Africa</td><td>Tauseef World</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">211h</span></td><td class="mono">14,299</td></tr>
-      <tr><td class="mono">sUjv0E</td><td class="mono">ZA-46184</td><td>In transit</td><td>South Africa</td><td>Youzarphone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">211h</span></td><td class="mono">6,799</td></tr>
-      <tr><td class="mono">A6NvM3</td><td class="mono">ZA-50721</td><td>In transit</td><td>South Africa</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">211h</span></td><td class="mono">5,699</td></tr>
-      <tr><td class="mono">fXwP7e</td><td class="mono">SA-118517</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">210h</span></td><td class="mono">2,449</td></tr>
-      <tr><td class="mono">kj5tSk</td><td class="mono">SA-118726</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">210h</span></td><td class="mono">1,949</td></tr>
-      <tr><td class="mono">R7bHvH</td><td class="mono">92070</td><td>Under collection</td><td>UAE</td><td>Jewel Oasis</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">210h</span></td><td class="mono">2,724</td></tr>
-      <tr><td class="mono">f0kLl0</td><td class="mono">HK-1064</td><td>Under collection</td><td>Hong Kong</td><td>SK World</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">210h</span></td><td class="mono">1,377</td></tr>
-      <tr><td class="mono">z4BpiD</td><td class="mono">ZA-51372</td><td>In transit</td><td>South Africa</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">210h</span></td><td class="mono">4,299</td></tr>
-      <tr><td class="mono">iZ0l6D</td><td class="mono">SA-118551</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">209h</span></td><td class="mono">2,289</td></tr>
-      <tr><td class="mono">y8oBDL</td><td class="mono">SA-117552</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">209h</span></td><td class="mono">1,199</td></tr>
-      <tr><td class="mono">PmeP7X</td><td class="mono">SA-118216</td><td>Pending collection</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Wrong device</td><td><span class="hrs" style="color:var(--amber)">209h</span></td><td class="mono">1,979</td></tr>
-      <tr><td class="mono">O5Kl1E</td><td class="mono">91684</td><td>In transit</td><td>UAE</td><td>Sabir Karim Phones</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">209h</span></td><td class="mono">2,960</td></tr>
-      <tr><td class="mono">Xtf2Mf</td><td class="mono">91516</td><td>Under QC</td><td>UAE</td><td>Tauseef World</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">209h</span></td><td class="mono">3,299</td></tr>
-      <tr><td class="mono">Z2zUku</td><td class="mono">91918</td><td>Under QC</td><td>UAE</td><td>Prime Cell</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">209h</span></td><td class="mono">1,989</td></tr>
-      <tr><td class="mono">lnG1Ej</td><td class="mono">ZA-50934</td><td>In transit</td><td>South Africa</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">207h</span></td><td class="mono">4,099</td></tr>
-      <tr><td class="mono">9fi3Um</td><td class="mono">ZA-52154</td><td>Pending collection</td><td>South Africa</td><td>Prime Cell</td><td>Wrong device</td><td><span class="hrs" style="color:var(--amber)">192h</span></td><td class="mono">12,899</td></tr>
-      <tr><td class="mono">Ecti7p</td><td class="mono">ZA-50817</td><td>Under QC</td><td>South Africa</td><td>Tauseef World</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">113h</span></td><td class="mono">15,099</td></tr>
-      <tr><td class="mono">JhVtW9</td><td class="mono">ZA-49451</td><td>In transit</td><td>South Africa</td><td>Cellular Trading</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">189h</span></td><td class="mono">11,199</td></tr>
-      <tr><td class="mono">VApk1K</td><td class="mono">ZA-49058</td><td>Under QC</td><td>South Africa</td><td>Certifydtek</td><td>Wrong device</td><td><span class="hrs" style="color:var(--amber)">115h</span></td><td class="mono">13,174</td></tr>
-      <tr><td class="mono">DtiD7J</td><td class="mono">ZA-51960</td><td>Under collection</td><td>South Africa</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">91h</span></td><td class="mono">13,199</td></tr>
+      <tr class="critical"><td class="mono">Uiy92f</td><td class="mono">92215</td><td>17. Collection failed</td><td>UAE</td><td>Certifydtek</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">17.9d ⚠</span></td><td class="mono">264</td></tr>
+      <tr class="critical"><td class="mono">4HwTxB</td><td class="mono">SA-116241</td><td>18. Under revision</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--red)">16.8d ⚠</span></td><td class="mono">1,584</td></tr>
+      <tr class="critical"><td class="mono">HG6Nfq</td><td class="mono">92215</td><td>17. Collection failed</td><td>UAE</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--red)">16.8d ⚠</span></td><td class="mono">364</td></tr>
+      <tr class="critical"><td class="mono">J4cAzm</td><td class="mono">92215</td><td>17. Collection failed</td><td>UAE</td><td>Certifydtek</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">16.8d ⚠</span></td><td class="mono">264</td></tr>
+      <tr class="critical"><td class="mono">zuSM9h</td><td class="mono">ZA-48628</td><td>18. Under revision</td><td>South Africa</td><td>Al Nakhlah</td><td>Issue</td><td><span class="hrs" style="color:var(--red)">13.8d ⚠</span></td><td class="mono">7,399</td></tr>
+      <tr class="critical"><td class="mono">nuy8S6</td><td class="mono">92261</td><td>17. Collection failed</td><td>UAE</td><td>NAW</td><td>Issue</td><td><span class="hrs" style="color:var(--red)">12.0d ⚠</span></td><td class="mono">3,059</td></tr>
+      <tr><td class="mono">5InkLI</td><td class="mono">ZA-49628</td><td>19. Expert revision</td><td>South Africa</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">10.9d</span></td><td class="mono">3,599</td></tr>
+      <tr><td class="mono">nrxPx1</td><td class="mono">SA-117148</td><td>19. Expert revision</td><td>Saudi Arabia</td><td>Tech Zella</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">10.9d</span></td><td class="mono">1,289</td></tr>
+      <tr><td class="mono">3toYgZ</td><td class="mono">ZA-49216</td><td>19. Expert revision</td><td>South Africa</td><td>BWR Electronics</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">10.9d</span></td><td class="mono">5,644</td></tr>
+      <tr><td class="mono">JUaXV6</td><td class="mono">ZA-52069</td><td>Delivered</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">10.8d</span></td><td class="mono">10,799</td></tr>
+      <tr><td class="mono">xNqQ8I</td><td class="mono">ZA-49176</td><td>Delivered</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">10.8d</span></td><td class="mono">4,099</td></tr>
+      <tr><td class="mono">I14Pgf</td><td class="mono">91244</td><td>17. Collection failed</td><td>UAE</td><td>Al Madani</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">10.0d</span></td><td class="mono">197</td></tr>
+      <tr><td class="mono">inOs7m</td><td class="mono">ZA-48096</td><td>Delivered</td><td>South Africa</td><td>Platinum Repair</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">10.0d</span></td><td class="mono">2,099</td></tr>
+      <tr><td class="mono">ei0BYt</td><td class="mono">91465</td><td>17. Collection failed</td><td>UAE</td><td>Tasal General</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">2,644</td></tr>
+      <tr><td class="mono">3Q0tOc</td><td class="mono">91483</td><td>17. Collection failed</td><td>UAE</td><td>Deal Expert</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">971</td></tr>
+      <tr><td class="mono">F3dAAl</td><td class="mono">91791</td><td>17. Collection failed</td><td>UAE</td><td>GreenCircle</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">829</td></tr>
+      <tr><td class="mono">2DqySk</td><td class="mono">92086</td><td>17. Collection failed</td><td>UAE</td><td>Hamza Bashir Trading</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">629</td></tr>
+      <tr><td class="mono">bzWX38</td><td class="mono">91392</td><td>17. Collection failed</td><td>UAE</td><td>Nisar Line</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">609</td></tr>
+      <tr><td class="mono">Y9mx8l</td><td class="mono">91506</td><td>17. Collection failed</td><td>UAE</td><td>The Tech Bee</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">999</td></tr>
+      <tr><td class="mono">u2ZVyb</td><td class="mono">91592</td><td>17. Collection failed</td><td>UAE</td><td>Renewa Tech</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">1,309</td></tr>
+      <tr><td class="mono">O9GCBq</td><td class="mono">91260</td><td>17. Collection failed</td><td>UAE</td><td>Discount Lane</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">9.9d</span></td><td class="mono">1,412</td></tr>
+      <tr><td class="mono">LYaez6</td><td class="mono">ZA-53117</td><td>18. Under revision</td><td>South Africa</td><td>Dealt</td><td>Wrong device</td><td><span class="hrs" style="color:var(--amber)">9.7d</span></td><td class="mono">5,399</td></tr>
+      <tr><td class="mono">Hf9osO</td><td class="mono">SA-117544</td><td>19. Expert revision</td><td>Saudi Arabia</td><td>Tech Zella</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">9.1d</span></td><td class="mono">1,479</td></tr>
+      <tr><td class="mono">5d24Gk</td><td class="mono">SA-117803</td><td>19. Expert revision</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Wrong device</td><td><span class="hrs" style="color:var(--amber)">9.1d</span></td><td class="mono">3,329</td></tr>
+      <tr><td class="mono">Cb5bHH</td><td class="mono">91820</td><td>17. Collection failed</td><td>UAE</td><td>Certifydtek</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">8.1d</span></td><td class="mono">197</td></tr>
+      <tr><td class="mono">ub1NgH</td><td class="mono">92311</td><td>17. Collection failed</td><td>UAE</td><td>Prime Cell</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">8.0d</span></td><td class="mono">1,539</td></tr>
+      <tr><td class="mono">eNNJy2</td><td class="mono">92115</td><td>17. Collection failed</td><td>UAE</td><td>Prime Cell</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">8.0d</span></td><td class="mono">2,019</td></tr>
+      <tr><td class="mono">cGc4sO</td><td class="mono">92595</td><td>17. Collection failed</td><td>UAE</td><td>SK World</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">8.0d</span></td><td class="mono">1,611</td></tr>
+      <tr><td class="mono">p0tNNs</td><td class="mono">SA-117378</td><td>18. Under revision</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">7.0d</span></td><td class="mono">2,489</td></tr>
+      <tr><td class="mono">T6pcVV</td><td class="mono">91774</td><td>18. Under revision</td><td>UAE</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">7.0d</span></td><td class="mono">714</td></tr>
+      <tr><td class="mono">94Gf7U</td><td class="mono">91997</td><td>18. Under revision</td><td>UAE</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">7.0d</span></td><td class="mono">989</td></tr>
+      <tr><td class="mono">Z613yn</td><td class="mono">92286</td><td>18. Under revision</td><td>UAE</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">7.0d</span></td><td class="mono">1,029</td></tr>
+      <tr><td class="mono">Qk1Pwn</td><td class="mono">92039</td><td>19. Expert revision</td><td>UAE</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">7.0d</span></td><td class="mono">1,224</td></tr>
+      <tr><td class="mono">V6qiYf</td><td class="mono">SA-115734</td><td>2. In transit</td><td>Saudi Arabia</td><td>Dealt</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">7.0d</span></td><td class="mono">1,772</td></tr>
+      <tr><td class="mono">5Udx5T</td><td class="mono">ZA-53018</td><td>18. Under revision</td><td>South Africa</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">7.0d</span></td><td class="mono">4,499</td></tr>
+      <tr><td class="mono">xL39yN</td><td class="mono">ZA-52285</td><td>18. Under revision</td><td>South Africa</td><td>Arham Waqar</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">6.9d</span></td><td class="mono">7,599</td></tr>
+      <tr><td class="mono">ZGZfy7</td><td class="mono">93003</td><td>18. Under revision</td><td>UAE</td><td>Smart Cell</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">6.9d</span></td><td class="mono">429</td></tr>
+      <tr><td class="mono">x4cGC3</td><td class="mono">92661</td><td>17. Collection failed</td><td>UAE</td><td>Jewel Oasis</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">6.9d</span></td><td class="mono">2,209</td></tr>
+      <tr><td class="mono">jPIyL9</td><td class="mono">SA-100511</td><td>2. In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">6.9d</span></td><td class="mono">1,088</td></tr>
+      <tr><td class="mono">BOmKN1</td><td class="mono">SA-121082</td><td>2. In transit</td><td>Saudi Arabia</td><td>Dealt</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">6.8d</span></td><td class="mono">881</td></tr>
+      <tr><td class="mono">w4TB7J</td><td class="mono">SA-119413</td><td>2. In transit</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">6.8d</span></td><td class="mono">2,060</td></tr>
+      <tr><td class="mono">kK6iSk</td><td class="mono">ZA-49668</td><td>19. Expert revision</td><td>South Africa</td><td>Hamza Bashir Trading</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">6.7d</span></td><td class="mono">6,044</td></tr>
+      <tr><td class="mono">6mVQg9</td><td class="mono">ZA-50535</td><td>18. Under revision</td><td>South Africa</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">6.2d</span></td><td class="mono">4,099</td></tr>
+      <tr><td class="mono">Bigya4</td><td class="mono">92817</td><td>17. Collection failed</td><td>UAE</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">6.0d</span></td><td class="mono">429</td></tr>
+      <tr><td class="mono">ZHf1bF</td><td class="mono">91884</td><td>17. Collection failed</td><td>UAE</td><td>Tauseef World</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">6.0d</span></td><td class="mono">2,276</td></tr>
+      <tr><td class="mono">2UhT6h</td><td class="mono">93265</td><td>2. In transit</td><td>UAE</td><td>Bilal Sohail Trading</td><td>Change of mind</td><td><span class="hrs">5.9d</span></td><td class="mono">4,193</td></tr>
+      <tr><td class="mono">8M4x2L</td><td class="mono">SA-117240</td><td>10. Shipped back</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">5.7d</span></td><td class="mono">876</td></tr>
+      <tr><td class="mono">6AKNkA</td><td class="mono">SA-117149</td><td>2. In transit</td><td>Saudi Arabia</td><td>BWR Electronics</td><td>Change of mind</td><td><span class="hrs">5.0d</span></td><td class="mono">1,457</td></tr>
+      <tr><td class="mono">oo2oVc</td><td class="mono">SA-118573</td><td>2. In transit</td><td>Saudi Arabia</td><td>Cellular Trading</td><td>Issue</td><td><span class="hrs">5.0d</span></td><td class="mono">2,339</td></tr>
+      <tr><td class="mono">X8v5dx</td><td class="mono">93333</td><td>2. In transit</td><td>UAE</td><td>FSA Trading</td><td>Change of mind</td><td><span class="hrs">5.0d</span></td><td class="mono">251</td></tr>
+      <tr><td class="mono">AN9Mrz</td><td class="mono">TH-1242</td><td>2. In transit</td><td>Thailand</td><td>Jewel Oasis</td><td>Issue</td><td><span class="hrs">5.0d</span></td><td class="mono">18,650</td></tr>
+      <tr><td class="mono">VClx2t</td><td class="mono">ZA-50089</td><td>2. In transit</td><td>South Africa</td><td>Al Nakhlah</td><td>Issue</td><td><span class="hrs">5.0d</span></td><td class="mono">9,244</td></tr>
+      <tr><td class="mono">6dF4qU</td><td class="mono">92047</td><td>2. In transit</td><td>UAE</td><td>Hamza Bashir Trading</td><td>Issue</td><td><span class="hrs">5.0d</span></td><td class="mono">179</td></tr>
+      <tr><td class="mono">pSj5SS</td><td class="mono">SA-120066</td><td>2. In transit</td><td>Saudi Arabia</td><td>Revibe Repair SA</td><td>Issue</td><td><span class="hrs">5.0d</span></td><td class="mono">3,549</td></tr>
+      <tr><td class="mono">JhVtW9</td><td class="mono">ZA-49451</td><td>2. In transit</td><td>South Africa</td><td>Cellular Trading</td><td>Issue</td><td><span class="hrs">5.0d</span></td><td class="mono">11,199</td></tr>
+      <tr><td class="mono">9og7P3</td><td class="mono">SA-120164</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.9d</span></td><td class="mono">2,573</td></tr>
+      <tr><td class="mono">H0cNjn</td><td class="mono">SA-119877</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.9d</span></td><td class="mono">1,907</td></tr>
+      <tr><td class="mono">eVRku3</td><td class="mono">SA-120951</td><td>2. In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">2,839</td></tr>
+      <tr><td class="mono">s73k7V</td><td class="mono">SA-119595</td><td>2. In transit</td><td>Saudi Arabia</td><td>SUN Electronics</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">2,694</td></tr>
+      <tr><td class="mono">93b80U</td><td class="mono">SA-120235</td><td>2. In transit</td><td>Saudi Arabia</td><td>GreenCircle</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">869</td></tr>
+      <tr><td class="mono">vDA2IM</td><td class="mono">ZA-53614</td><td>2. In transit</td><td>South Africa</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">4,099</td></tr>
+      <tr><td class="mono">233cvX</td><td class="mono">SA-120349</td><td>2. In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">2,729</td></tr>
+      <tr><td class="mono">7T3fXa</td><td class="mono">SA-121873</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.9d</span></td><td class="mono">1,052</td></tr>
+      <tr><td class="mono">0VlD8R</td><td class="mono">SA-119943</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.9d</span></td><td class="mono">3,257</td></tr>
+      <tr><td class="mono">mD1qAX</td><td class="mono">93394</td><td>2. In transit</td><td>UAE</td><td>M4U Mobile</td><td>Change of mind</td><td><span class="hrs">4.9d</span></td><td class="mono">1,170</td></tr>
+      <tr><td class="mono">hkOh2z</td><td class="mono">93047</td><td>2. In transit</td><td>UAE</td><td>NAW</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">2,199</td></tr>
+      <tr><td class="mono">FuGu27</td><td class="mono">SA-119478</td><td>2. In transit</td><td>Saudi Arabia</td><td>GreenCircle</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">1,999</td></tr>
+      <tr><td class="mono">YNe32p</td><td class="mono">ZA-54337</td><td>2. In transit</td><td>South Africa</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">4,999</td></tr>
+      <tr><td class="mono">p80DTr</td><td class="mono">93199</td><td>2. In transit</td><td>UAE</td><td>Sale Zone</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">764</td></tr>
+      <tr><td class="mono">d2Zbml</td><td class="mono">ZA-52903</td><td>2. In transit</td><td>South Africa</td><td>Prime Cell</td><td>Issue</td><td><span class="hrs">4.9d</span></td><td class="mono">8,899</td></tr>
+      <tr><td class="mono">voI9Wp</td><td class="mono">92741</td><td>2. In transit</td><td>UAE</td><td>Discount Lane</td><td>Change of mind</td><td><span class="hrs">4.9d</span></td><td class="mono">3,410</td></tr>
+      <tr><td class="mono">qhouO7</td><td class="mono">SA-119670</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.9d</span></td><td class="mono">1,835</td></tr>
+      <tr><td class="mono">bjjyX2</td><td class="mono">SA-119744</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.8d</span></td><td class="mono">2,654</td></tr>
+      <tr><td class="mono">HHbN9i</td><td class="mono">SA-120259</td><td>2. In transit</td><td>Saudi Arabia</td><td>Hamza Bashir Trading</td><td>Issue</td><td><span class="hrs">4.8d</span></td><td class="mono">2,149</td></tr>
+      <tr><td class="mono">VG7x9n</td><td class="mono">SA-119630</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.8d</span></td><td class="mono">999</td></tr>
+      <tr><td class="mono">C3Cwtq</td><td class="mono">ZA-53535</td><td>2. In transit</td><td>South Africa</td><td>FSA Trading</td><td>Issue</td><td><span class="hrs">4.8d</span></td><td class="mono">20,599</td></tr>
+      <tr><td class="mono">AvEC1V</td><td class="mono">SA-120448</td><td>2. In transit</td><td>Saudi Arabia</td><td>Dealt</td><td>Issue</td><td><span class="hrs">4.8d</span></td><td class="mono">3,999</td></tr>
+      <tr><td class="mono">ruKr9G</td><td class="mono">ZA-53319</td><td>2. In transit</td><td>South Africa</td><td>GreenCircle</td><td>Issue</td><td><span class="hrs">4.8d</span></td><td class="mono">4,299</td></tr>
+      <tr><td class="mono">t0W89D</td><td class="mono">SA-119325</td><td>2. In transit</td><td>Saudi Arabia</td><td>Golden Specialist</td><td>Change of mind</td><td><span class="hrs">4.8d</span></td><td class="mono">1,781</td></tr>
+      <tr><td class="mono">nAO036</td><td class="mono">SA-118638</td><td>2. In transit</td><td>Saudi Arabia</td><td>Certifydtek</td><td>Issue</td><td><span class="hrs">4.8d</span></td><td class="mono">2,369</td></tr>
     </tbody>
   </table>
   </div>
-  <div class="note">Showing 80 worst claims by hours stale. Full 48h+ list: 263 claims. Full 24h+ list: 439 claims.</div>
+  <div class="note">Showing 80 worst claims by days stale (excl. Under QC). Full 48h+ list: 191 claims (excl. Under QC).</div>
 </div>
 
 <!-- ③ FORM RECEIVED -->
@@ -566,11 +547,11 @@ body {
 </div>
 
 <!-- ⑤ COUNTRIES -->
-<div class="sec">⑤ By country <span class="chk">625+361+344+2+2 = 1,334 ✓</span></div>
+<div class="sec">⑤ By country <span class="chk">889+473+424+4+3+1+1 = 1,795 ✓</span></div>
 <div class="wide-3">
   <div class="card">
     <div class="ct">Saudi Arabia <span class="chk">46.6% of total</span></div>
-    <div class="bignum" style="color:#1565c0;margin-bottom:8px">625 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 46.8% of total</span></div>
+    <div class="bignum" style="color:#1565c0;margin-bottom:8px">889 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 49.5% of total</span></div>
     <div class="row"><span>16. Under collection</span><strong>—</strong></div>
     <div class="row"><span>11. Cancelled</span><strong>172</strong></div>
     <div class="row"><span>1. Pending collection</span><strong>—</strong></div>
@@ -579,14 +560,14 @@ body {
   </div>
   <div class="card">
     <div class="ct">United Arab Emirates <span class="chk">27.3% of total</span></div>
-    <div class="bignum" style="color:#065f46;margin-bottom:8px">361 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 27.1% of total</span></div>
+    <div class="bignum" style="color:#065f46;margin-bottom:8px">473 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 26.4% of total</span></div>
     <div class="row"><span>11. Cancelled</span><strong>101</strong></div>
     <div class="row"><span>Open stages</span><strong>225</strong></div>
     <div class="note">101 cancelled (31% cancel rate in UAE). Nisar Line cluster stale at 286h in transit.</div>
   </div>
   <div class="card">
     <div class="ct">South Africa <span class="chk">25.8% of total</span></div>
-    <div class="bignum" style="color:#5b21b6;margin-bottom:8px">344 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 25.8% of total</span></div>
+    <div class="bignum" style="color:#5b21b6;margin-bottom:8px">424 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 23.6% of total</span></div>
     <div class="row"><span>11. Cancelled</span><strong>70</strong></div>
     <div class="row"><span>Open stages</span><strong>238</strong></div>
     <div class="note">Worst staleness in absolute terms — Platinum Repair top cluster at 353h. Multiple suppliers (Certifydtek, Tauseef World, Sale Zone) with very long stale times.</div>
@@ -599,13 +580,13 @@ body {
 </div>
 
 <!-- ⑥ CANCELLED -->
-<div class="sec">⑥ Cancelled — 344 claims <span class="chk">320+49+20 = 389 ✓</span></div>
+<div class="sec">⑥ Cancelled — 344 claims <span class="chk">565+107+91 = 763 ✓</span></div>
 <div class="wide-2" style="margin-bottom:12px">
   <div class="card-cancel">
     <div class="ct ct-c">By claim reason <span class="chk">296+47+23 = 366 ✓</span></div>
     <div class="note" style="margin-bottom:10px">cancellation_reason field not populated in claim_cancellation_details — using sub_type as proxy</div>
-    <div class="sr"><div class="sl">Issue with device</div><div class="bw"><div class="bf" style="width:100%;background:#d6d3d1"></div></div><div class="sn">320</div></div>
-    <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:15%;background:#d6d3d1"></div></div><div class="sn">49</div></div>
+    <div class="sr"><div class="sl">Issue with device</div><div class="bw"><div class="bf" style="width:100%;background:#d6d3d1"></div></div><div class="sn">565</div></div>
+    <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:15%;background:#d6d3d1"></div></div><div class="sn">91</div></div>
     <div class="sr"><div class="sl">Change of mind</div><div class="bw"><div class="bf" style="width:7%;background:#d6d3d1"></div></div><div class="sn">20</div></div>
   </div>
   <div class="card-cancel">
@@ -995,8 +976,8 @@ body {
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
       <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Open claims at 9am</div>
-      <div id="kpi-open-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1a6e32">703</div>
-      <div id="kpi-open-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">open at 9am today (May 22)</div>
+      <div id="kpi-open-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1a6e32">612</div>
+      <div id="kpi-open-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">open at 9am today (Jun 2)</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
@@ -1028,7 +1009,7 @@ body {
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Median today</div>
-        <div id="kpi-age-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">6.9d</div>
+        <div id="kpi-age-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">12.8d</div>
         <div id="kpi-age-median-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">median age at 9am</div>
       </div>
       <div style="text-align:right">
@@ -1064,13 +1045,13 @@ body {
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
       <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Resolved</div>
-      <div id="kpi-closed-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">39</div>
-      <div id="kpi-closed-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">37 refunded + 2 delivered yesterday (May 21)</div>
+      <div id="kpi-closed-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">22</div>
+      <div id="kpi-closed-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">22 refunded yesterday (Jun 1)</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Period total</div>
-        <div id="kpi-closed-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">235</div>
+        <div id="kpi-closed-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">367</div>
         <div id="kpi-closed-total-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">resolved May 6–19</div>
       </div>
       <div style="text-align:right">
@@ -1095,13 +1076,13 @@ body {
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
       <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Cancelled</div>
-      <div id="kpi-cancel-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--cancel)">17</div>
+      <div id="kpi-cancel-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--cancel)">9</div>
       <div id="kpi-cancel-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">19 cancelled yesterday (May 19)</div>
     </div>
     <div style="display:flex;gap:20px">
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Period total</div>
-        <div id="kpi-cancel-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">389</div>
+        <div id="kpi-cancel-total" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">533</div>
         <div id="kpi-cancel-total-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">cancelled May 6–19</div>
       </div>
       <div style="text-align:right">
@@ -1125,7 +1106,7 @@ body {
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
     <div>
       <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg days to resolve</div>
-      <div id="kpi-dtr-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--amber)">8.4d</div>
+      <div id="kpi-dtr-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:var(--amber)">7.9d</div>
       <div id="kpi-dtr-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">May 19 · 35 claims resolved</div>
     </div>
     <div style="display:flex;gap:20px">
@@ -1160,7 +1141,7 @@ body {
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
       <div>
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Claims received</div>
-        <div id="kpi-recv-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">72</div>
+        <div id="kpi-recv-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#1565c0">16</div>
         <div id="kpi-recv-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">May 20 · partial day</div>
       </div>
       <div style="text-align:right">
@@ -1182,12 +1163,12 @@ body {
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px">
       <div>
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Avg time to action</div>
-        <div id="kpi-tta-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#8b5cf6">1.1d</div>
+        <div id="kpi-tta-big" style="font-size:36px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#8b5cf6">0.7d</div>
         <div id="kpi-tta-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">form received → moved to next stage</div>
       </div>
       <div style="text-align:right">
         <div style="font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Median yesterday</div>
-        <div id="kpi-tta-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">0.7d</div>
+        <div id="kpi-tta-median" style="font-size:22px;font-weight:600;letter-spacing:-1px;color:var(--text)">0.6d</div>
         <div id="kpi-tta-median-sub" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">median time to action</div>
       </div>
     </div>
@@ -1203,6 +1184,163 @@ body {
 </div>
 
 </div><!-- /tab-kpi -->
+
+<!-- TAB: OPERATIONAL OLD VIEW -->
+<div class="tab-pane" id="tab-operational-old">
+
+<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:6px;padding:10px 14px;margin-bottom:14px;font-family:'DM Mono',monospace;font-size:11px;color:#78350f">
+  ⓘ Excluding 75 abandoned "Form received" open claims (bulk system event ~28 days ago, never progressed). See <code>form_received_open_claims.xlsx</code> for the full list.
+</div>
+
+<!-- Top metrics -->
+<div class="metrics-row">
+  <div class="metric">
+    <div class="lbl">Open claims</div>
+    <div class="val" style="color:#1a6e32">63</div>
+    <div class="sub">excl. 75 abandoned Form received · closed 26,697</div>
+  </div>
+  <div class="metric">
+    <div class="lbl">Open exposure</div>
+    <div class="val" style="color:var(--amber)">AED 29.4K</div>
+    <div class="sub">avg AED ~467 / open claim</div>
+  </div>
+  <div class="metric">
+    <div class="lbl">Repair partners</div>
+    <div class="val" style="color:var(--partner)">1,269</div>
+    <div class="sub">GS 697 · Platinum 572 (total cohort)</div>
+  </div>
+  <div class="metric">
+    <div class="lbl">Independent</div>
+    <div class="val" style="color:var(--indep)">25,583</div>
+    <div class="sub">total cohort: 26,852</div>
+  </div>
+</div>
+
+<!-- Alert -->
+<div class="alert-urgent">
+  <span>🚨 <strong>12 open claims past 48h without update</strong> (excl. Under QC) — Mostly stuck In transit · 1 claim at 33 days stale</span>
+  <span class="badge b-red">48h+ overdue</span>
+</div>
+
+<!-- ① Pipeline -->
+<div class="sec">① Pipeline by stage — status = 'Open' (excl. Form received) <span class="chk">25+15+8+6+4+4+1 = 63 ✓</span></div>
+<div class="card" style="margin-bottom:14px">
+  <table class="pipe-tbl">
+    <thead><tr><th style="width:220px">Stage</th><th style="width:200px">Volume</th><th style="width:50px">N</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td><div class="sname"><div class="sdot" style="background:#06b6d4"></div>2. In transit</div></td><td><div class="bwrap"><div class="bfill" style="width:100%;background:#06b6d4"></div></div></td><td class="ncell">25</td><td class="dcell" style="color:var(--red)">8 stale 48h+</td></tr>
+      <tr style="opacity:.6"><td><div class="sname"><div class="sdot" style="background:#a8a29e"></div>Invalid claim confirmed</div></td><td><div class="bwrap"><div class="bfill" style="width:60%;background:#a8a29e"></div></div></td><td class="ncell" style="color:var(--text3)">15</td><td class="dcell"></td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:#f59e0b"></div>3. Under QC</div></td><td><div class="bwrap"><div class="bfill" style="width:32%;background:#f59e0b"></div></div></td><td class="ncell">8</td><td class="dcell" style="color:var(--text3)">Excluded from staleness</td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:#ef4444"></div>6. Ready for refund</div></td><td><div class="bwrap"><div class="bfill" style="width:24%;background:#ef4444"></div></div></td><td class="ncell">6</td><td class="dcell" style="color:var(--amber)">1 stale 48h+</td></tr>
+      <tr style="opacity:.6"><td><div class="sname"><div class="sdot" style="background:#a8a29e"></div>4. Invalid claim</div></td><td><div class="bwrap"><div class="bfill" style="width:16%;background:#a8a29e"></div></div></td><td class="ncell" style="color:var(--text3)">4</td><td class="dcell"></td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:#f59e0b"></div>Sent to Naif</div></td><td><div class="bwrap"><div class="bfill" style="width:16%;background:#f59e0b"></div></div></td><td class="ncell">4</td><td class="dcell"></td></tr>
+      <tr><td><div class="sname"><div class="sdot" style="background:#10b981"></div>1. Pending collection</div></td><td><div class="bwrap"><div class="bfill" style="width:4%;background:#10b981"></div></div></td><td class="ncell">1</td><td class="dcell"></td></tr>
+    </tbody>
+  </table>
+  <div class="note">WHERE claim_type IS NULL OR claim_type = '' AND status = 'Open' AND stage != '0. Form received'. 10. Shipped back (126) and Delivered (172) are status = 'Closed'.</div>
+</div>
+
+<!-- ② Staleness -->
+<div class="sec">② Staleness (excl. Under QC, excl. Form received)</div>
+<div class="stale-top">
+  <div class="card-urgent">
+    <div class="ct ct-red">🚨 Not updated in 48h+</div>
+    <div class="pnums">
+      <div><div class="pnl" style="color:var(--red)">critical claims</div><div class="bignum" style="color:var(--red)">12</div></div>
+      <div><div class="pnl" style="color:var(--red)">% of open</div><div class="bignum" style="color:var(--red)">19%</div></div>
+    </div>
+    <div class="row-r"><span>2. In transit</span><span class="badge b-red">8 claims</span></div>
+    <div class="row-r"><span>Invalid claim confirmed</span><span class="badge b-red">2 claims</span></div>
+    <div class="row-r"><span>6. Ready for refund</span><span class="badge b-red">1 claim</span></div>
+    <div class="row-r"><span>4. Invalid claim</span><span class="badge b-red">1 claim</span></div>
+    <div class="note-r">Top claim is 33 days stale (5FCmhT, In transit). Cluster of 4 claims at 28.3d from order 68431 (UAE).</div>
+  </div>
+  <div class="card-warn">
+    <div class="ct ct-warn">Not updated in 24h+</div>
+    <div class="pnums">
+      <div><div class="pnl" style="color:var(--amber)">stuck open</div><div class="bignum" style="color:var(--amber)">17</div></div>
+      <div><div class="pnl" style="color:var(--amber)">% of open</div><div class="bignum" style="color:var(--amber)">27%</div></div>
+    </div>
+    <div class="row-w"><span>2. In transit</span><span class="badge b-amber">10</span></div>
+    <div class="row-w"><span>6. Ready for refund</span><span class="badge b-amber">3</span></div>
+    <div class="row-w"><span>Invalid claim confirmed</span><span class="badge b-amber">2</span></div>
+    <div class="row-w"><span>4. Invalid claim + other</span><span class="badge b-amber">2</span></div>
+    <div class="note-w">Manageable backlog now that Form received is excluded. Focus should be on the 8 In transit claims 48h+.</div>
+  </div>
+</div>
+
+<!-- Stale claims table -->
+<div class="card" style="margin-bottom:14px">
+  <div class="ct">All 12 stale open claims — sorted by days stale (status=Open, excl. Under QC, excl. Form received)</div>
+  <div class="scroll-x">
+  <table class="tbl">
+    <thead><tr><th>Claim ID</th><th>Order</th><th>Stage</th><th>Country</th><th>Supplier</th><th>Reason</th><th>Days stale</th><th>AED</th></tr></thead>
+    <tbody>
+      <tr class="critical"><td class="mono">5FCmhT</td><td class="mono">ZA-48128</td><td>2. In transit</td><td>South Africa</td><td>Smart Device World</td><td>Wrong device</td><td><span class="hrs" style="color:var(--red)">33.0d ⚠</span></td><td class="mono">0</td></tr>
+      <tr class="critical"><td class="mono">YecfQok4M</td><td class="mono">68431</td><td>2. In transit</td><td>UAE</td><td>Certifydtek</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">28.3d ⚠</span></td><td class="mono">0</td></tr>
+      <tr class="critical"><td class="mono">3ccTi7TTm</td><td class="mono">68431</td><td>2. In transit</td><td>UAE</td><td>Certifydtek</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">28.3d ⚠</span></td><td class="mono">0</td></tr>
+      <tr class="critical"><td class="mono">1LgDGp4SK</td><td class="mono">SA-75143</td><td>2. In transit</td><td>Saudi Arabia</td><td>Gadgethub</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">28.3d ⚠</span></td><td class="mono">0</td></tr>
+      <tr class="critical"><td class="mono">QsL2MUPxy</td><td class="mono">68431</td><td>2. In transit</td><td>UAE</td><td>Certifydtek</td><td>Change of mind</td><td><span class="hrs" style="color:var(--red)">28.3d ⚠</span></td><td class="mono">0</td></tr>
+      <tr class="critical"><td class="mono">rW3XS9</td><td class="mono">SA-92317</td><td>6. Ready for refund</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs" style="color:var(--red)">13.9d ⚠</span></td><td class="mono">2,399</td></tr>
+      <tr><td class="mono">zCTZp3</td><td class="mono">90458</td><td>Invalid claim confirmed</td><td>UAE</td><td>Prime Cell</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">6.8d</span></td><td class="mono">0</td></tr>
+      <tr><td class="mono">smIoC9</td><td class="mono">90382</td><td>Invalid claim confirmed</td><td>UAE</td><td>NAW</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">5.7d</span></td><td class="mono">0</td></tr>
+      <tr><td class="mono">dG8a8X</td><td class="mono">89851</td><td>2. In transit</td><td>UAE</td><td>Tasal General</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">4.0d</span></td><td class="mono">0</td></tr>
+      <tr><td class="mono">0RXEvs</td><td class="mono">SA-111368</td><td>2. In transit</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">3.8d</span></td><td class="mono">0</td></tr>
+      <tr><td class="mono">xBzCH1</td><td class="mono">SA-116900</td><td>2. In transit</td><td>Saudi Arabia</td><td>FSA Trading</td><td>Issue</td><td><span class="hrs" style="color:var(--amber)">3.8d</span></td><td class="mono">0</td></tr>
+      <tr><td class="mono">1ZYHen</td><td class="mono">SA-117022</td><td>4. Invalid claim</td><td>Saudi Arabia</td><td>SteppingStone</td><td>Change of mind</td><td><span class="hrs" style="color:var(--amber)">3.8d</span></td><td class="mono">0</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note">Showing all 12 claims with 48h+ no update (excl. Under QC and Form received).</div>
+</div>
+
+<!-- ③ Supplier staleness -->
+<div class="sec">③ Suppliers with un-updated claims — In transit &gt;3d</div>
+<div style="max-width:400px;margin-bottom:14px">
+  <div class="card-warn">
+    <div class="ct ct-warn">2. In transit &gt;3d — 5 claims</div>
+    <table class="tbl">
+      <thead><tr><th>Supplier</th><th style="text-align:right">Claims</th><th style="text-align:right">Avg d</th><th style="text-align:right">Max d</th></tr></thead>
+      <tbody>
+        <tr><td>Almas Al Burteqali</td><td style="text-align:right;font-family:'DM Mono',monospace;font-weight:600;color:var(--amber)">2</td><td style="text-align:right;font-family:'DM Mono',monospace">23.5</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red);font-weight:600">28.2</td></tr>
+        <tr style="color:var(--text3)"><td>Prime Cell</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">27.5</td><td style="text-align:right;font-family:'DM Mono',monospace;color:var(--red)">27.5</td></tr>
+        <tr style="color:var(--text3)"><td>Tasal General</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">10.7</td><td style="text-align:right;font-family:'DM Mono',monospace">10.7</td></tr>
+        <tr style="color:var(--text3)"><td>Orderly</td><td style="text-align:right;font-family:'DM Mono',monospace">1</td><td style="text-align:right;font-family:'DM Mono',monospace">10.5</td><td style="text-align:right;font-family:'DM Mono',monospace">10.5</td></tr>
+      </tbody>
+    </table>
+    <div class="note-w">Pending collection and Under collection have 0 stale claims in this cohort.</div>
+  </div>
+</div>
+
+<!-- ④ Countries -->
+<div class="sec">④ By country (total cohort) <span class="chk">16,760+6,683+3,219+34+22+17+7+1 = 26,743 (+ ~109 unmapped)</span></div>
+<div class="wide-3">
+  <div class="card">
+    <div class="ct">Saudi Arabia</div>
+    <div class="bignum" style="color:#1565c0;margin-bottom:4px">16,760 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 62.5%</span></div>
+  </div>
+  <div class="card">
+    <div class="ct">United Arab Emirates</div>
+    <div class="bignum" style="color:#065f46;margin-bottom:4px">6,683 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 24.9%</span></div>
+  </div>
+  <div class="card">
+    <div class="ct">South Africa</div>
+    <div class="bignum" style="color:#5b21b6;margin-bottom:4px">3,219 <span style="font-size:13px;font-weight:400;color:var(--text3)">· 12.0%</span></div>
+  </div>
+</div>
+
+<!-- ⑤ Closed -->
+<div class="sec">⑤ Closed claims by sub_type — 26,697 closed</div>
+<div class="card" style="margin-bottom:14px">
+  <div class="ct">By claim reason (top sub_types)</div>
+  <div class="sr"><div class="sl">Issue</div><div class="bw"><div class="bf" style="width:100%;background:#d6d3d1"></div></div><div class="sn">15,937</div></div>
+  <div class="sr"><div class="sl">Change of mind</div><div class="bw"><div class="bf" style="width:53%;background:#d6d3d1"></div></div><div class="sn">8,473</div></div>
+  <div class="sr"><div class="sl">Wrong device</div><div class="bw"><div class="bf" style="width:14%;background:#d6d3d1"></div></div><div class="sn">2,180</div></div>
+  <div class="sr"><div class="sl">Delayed order</div><div class="bw"><div class="bf" style="width:1%;background:#d6d3d1"></div></div><div class="sn">64</div></div>
+  <div class="note">15,937+8,473+2,180+64+28 = 26,682 (~15 with other/unlabelled sub_types).</div>
+</div>
+
+</div><!-- /tab-operational-old -->
 
 <div class="footer">
   <span>Revibe Holdings · Claims Operations · AP-Southeast-1 DB · Claude-generated</span>
@@ -1239,28 +1377,28 @@ function switchTab(id, btn) {
 
 /* ── DATA: open claims at 9am UAE each day ── */
 const daily = [
-  { date:'May 7',  open:173 },
-  { date:'May 8',  open:244 },
-  { date:'May 9',  open:287 },
-  { date:'May 10', open:357 },
-  { date:'May 11', open:392 },
-  { date:'May 12', open:474 },
-  { date:'May 13', open:520 },
-  { date:'May 14', open:559 },
-  { date:'May 15', open:598 },
-  { date:'May 16', open:641 },
-  { date:'May 17', open:694 },
   { date:'May 18', open:725 },
   { date:'May 19', open:717 },
   { date:'May 20', open:703 },
   { date:'May 21', open:711 },
-  { date:'May 22', open:703 },
+  { date:'May 22', open:706 },
+  { date:'May 23', open:674 },
+  { date:'May 24', open:679 },
+  { date:'May 25', open:630 },
+  { date:'May 26', open:632 },
+  { date:'May 27', open:634 },
+  { date:'May 28', open:597 },
+  { date:'May 29', open:598 },
+  { date:'May 30', open:617 },
+  { date:'May 31', open:619 },
+  { date:'Jun 1',  open:630 },
+  { date:'Jun 2',  open:612 },
 ];
 
 const weekly = [
-  { date:'May 7–11',  open:Math.round((173+244+287+357+392)/5) },
-  { date:'May 12–18', open:Math.round((474+520+559+598+641+694+725)/7) },
-  { date:'May 19–22', open:Math.round((717+703+711+703)/4) },
+  { date:'May 18–24', open:Math.round((725+717+703+711+706+674+679)/7) },
+  { date:'May 25–31', open:Math.round((630+632+634+597+598+617+619)/7) },
+  { date:'Jun 1–2',   open:Math.round((630+612)/2) },
 ];
 
 const monthly = [
@@ -1270,9 +1408,9 @@ const monthly = [
 const views = { day: daily, week: weekly, month: monthly };
 
 const kpiText = {
-  day:   { big:'703', sub:'open at 9am today (May 22)', avg:'546', avgSub:'avg open at 9am / day (16d)' },
-  week:  { big:'709', sub:'avg open at 9am (May 19–22)', avg:'546', avgSub:'avg open at 9am / day' },
-  month: { big:'546', sub:'avg open at 9am (May 2026)',  avg:'546', avgSub:'avg open at 9am / day' },
+  day:   { big:'612', sub:'open at 9am today (Jun 2)', avg:'649', avgSub:'avg open at 9am / day (16d)' },
+  week:  { big:'621', sub:'avg open at 9am (Jun 1–2)', avg:'649', avgSub:'avg open at 9am / day' },
+  month: { big:'649', sub:'avg open at 9am (May 2026)', avg:'649', avgSub:'avg open at 9am / day' },
 };
 
 /* ── CHART ── */
@@ -1448,36 +1586,36 @@ function setView(v) {
 
 /* ── CHART 2: Aging ── */
 const agingDaily = [
-  { date:'May 7',  avg:1.2,  med:1.0  },
-  { date:'May 8',  avg:1.7,  med:1.7  },
-  { date:'May 9',  avg:2.3,  med:2.3  },
-  { date:'May 10', avg:2.7,  med:2.8  },
-  { date:'May 11', avg:3.1,  med:2.9  },
-  { date:'May 12', avg:3.4,  med:3.1  },
-  { date:'May 13', avg:3.9,  med:3.6  },
-  { date:'May 14', avg:4.4,  med:3.9  },
-  { date:'May 15', avg:5.0,  med:4.6  },
-  { date:'May 16', avg:5.6,  med:5.1  },
   { date:'May 17', avg:6.0,  med:5.9  },
   { date:'May 18', avg:6.3,  med:6.1  },
   { date:'May 19', avg:6.6,  med:6.7  },
   { date:'May 20', avg:7.0,  med:6.9  },
   { date:'May 21', avg:7.3,  med:7.0  },
-  { date:'May 22', avg:7.6,  med:6.9  },
+  { date:'May 22', avg:7.5,  med:6.9  },
+  { date:'May 23', avg:7.5,  med:6.7  },
+  { date:'May 24', avg:7.9,  med:6.8  },
+  { date:'May 25', avg:8.0,  med:6.9  },
+  { date:'May 26', avg:8.3,  med:7.0  },
+  { date:'May 27', avg:8.8,  med:7.6  },
+  { date:'May 28', avg:9.6,  med:8.8  },
+  { date:'May 29', avg:10.3, med:9.7  },
+  { date:'May 30', avg:10.9, med:10.0 },
+  { date:'May 31', avg:11.5, med:10.8 },
+  { date:'Jun 1',  avg:12.2, med:11.6 },
 ];
 const agingWeekly = [
-  { date:'May 7–11',  avg:2.2, med:2.1 },
-  { date:'May 12–18', avg:5.5, med:5.2 },
-  { date:'May 19–22', avg:7.1, med:6.9 },
+  { date:'May 18–24', avg:7.4, med:6.9 },
+  { date:'May 25–31', avg:9.5, med:8.6 },
+  { date:'Jun 1–2',   avg:12.7, med:12.2 },
 ];
 const agingMonthly = [
   { date:'May 2026', avg:+(agingDaily.reduce((s,d)=>s+d.avg,0)/agingDaily.length).toFixed(1), med:+(agingDaily.reduce((s,d)=>s+d.med,0)/agingDaily.length).toFixed(1) },
 ];
 const agingViews = { day:agingDaily, week:agingWeekly, month:agingMonthly };
 const agingKpiText = {
-  day:   { big:'7.6d', sub:'avg age today (May 22)', median:'6.9d', medSub:'median age today', pavg:'4.9d', pavgSub:'avg across 16 days' },
-  week:  { big:'7.1d', sub:'avg age (May 19–22)', median:'6.9d', medSub:'median (May 19–22)', pavg:'4.9d', pavgSub:'avg across 3 weeks' },
-  month: { big:'4.9d', sub:'avg age (May 2026)', median:'4.5d', medSub:'median (May 2026)', pavg:'4.9d', pavgSub:'monthly avg' },
+  day:   { big:'13.2d', sub:'avg age today (Jun 2)', median:'12.8d', medSub:'median age today', pavg:'9.2d', pavgSub:'avg across 16 days' },
+  week:  { big:'12.7d', sub:'avg age (Jun 1–2)', median:'12.2d', medSub:'median (Jun 1–2)', pavg:'9.2d', pavgSub:'avg across 3 weeks' },
+  month: { big:'9.2d', sub:'avg age (May–Jun 2026)', median:'8.7d', medSub:'median (May–Jun 2026)', pavg:'9.2d', pavgSub:'monthly avg' },
 };
 
 function drawAgingChart(view) {
@@ -1501,35 +1639,35 @@ function drawAgingChart(view) {
 
 /* ── CHART 3: Resolved claims ── */
 const closedDaily = [
-  { date:'May 7',  refunded:2,   delivered:0 },
-  { date:'May 8',  refunded:2,   delivered:0 },
-  { date:'May 9',  refunded:0,   delivered:0 },
-  { date:'May 10', refunded:0,   delivered:0 },
-  { date:'May 11', refunded:5,   delivered:0 },
-  { date:'May 12', refunded:0,   delivered:0 },
-  { date:'May 13', refunded:0,   delivered:0 },
-  { date:'May 14', refunded:0,   delivered:0 },
-  { date:'May 15', refunded:0,   delivered:0 },
-  { date:'May 16', refunded:0,   delivered:0 },
-  { date:'May 17', refunded:0,   delivered:0 },
-  { date:'May 18', refunded:34,  delivered:0 },
-  { date:'May 19', refunded:101, delivered:0 },
-  { date:'May 20', refunded:16,  delivered:0 },
-  { date:'May 21', refunded:37,  delivered:2 },
-  { date:'May 22', refunded:36,  delivered:0 },
+  { date:'May 18', refunded:34, delivered:0 },
+  { date:'May 19', refunded:101,delivered:0 },
+  { date:'May 20', refunded:16, delivered:0 },
+  { date:'May 21', refunded:37, delivered:2 },
+  { date:'May 22', refunded:46, delivered:1 },
+  { date:'May 23', refunded:0,  delivered:0 },
+  { date:'May 24', refunded:0,  delivered:0 },
+  { date:'May 25', refunded:67, delivered:0 },
+  { date:'May 26', refunded:15, delivered:0 },
+  { date:'May 27', refunded:15, delivered:0 },
+  { date:'May 28', refunded:4,  delivered:0 },
+  { date:'May 29', refunded:7,  delivered:0 },
+  { date:'May 30', refunded:0,  delivered:0 },
+  { date:'May 31', refunded:0,  delivered:0 },
+  { date:'Jun 1',  refunded:22, delivered:0 },
+  { date:'Jun 2',  refunded:0,  delivered:0 },
 ];
 const closedWeekly = [
-  { date:'May 7–11',  refunded:Math.round((2+2+0+0+5)/5),   delivered:0 },
-  { date:'May 12–18', refunded:Math.round((0+0+0+0+0+0+34)/7), delivered:0 },
-  { date:'May 19–22', refunded:Math.round((101+16+37+36)/4), delivered:Math.round((0+0+2+0)/4) },
+  { date:'May 18–24', refunded:Math.round((34+101+16+37+46+0+0)/7),  delivered:Math.round((0+0+0+2+1+0+0)/7) },
+  { date:'May 25–31', refunded:Math.round((67+15+15+4+7+0+0)/7),     delivered:0 },
+  { date:'Jun 1–2',   refunded:Math.round((22+0)/2),                 delivered:0 },
 ];
 const closedMonthly = [
-  { date:'May 2026', refunded:Math.round((2+2+0+0+5+0+0+0+0+0+0+34+101+16+37+36)/16), delivered:Math.round(2/16) },
+  { date:'May 2026', refunded:Math.round((34+101+16+37+46+0+0+67+15+15+4+7+0+0+22+0)/16), delivered:Math.round(3/16) },
 ];
 const closedViews = { day:closedDaily, week:closedWeekly, month:closedMonthly };
 const closedKpiText = {
-  day:   { big:'39', sub:'resolved yesterday (May 21)', total:'235', totalSub:'resolved May 7–22', avg:'15', avgSub:'avg resolved / day (16d)' },
-  week:  { big:'48', sub:'avg resolved / day (May 19–22)', total:'235', totalSub:'resolved May 7–22', avg:'15', avgSub:'avg resolved / day' },
+  day:   { big:'22', sub:'resolved yesterday (Jun 1)', total:'367', totalSub:'resolved May 18–Jun 1', avg:'23', avgSub:'avg resolved / day (16d)' },
+  week:  { big:'11', sub:'avg resolved / day (Jun 1–2)', total:'367', totalSub:'resolved May 18–Jun 1', avg:'23', avgSub:'avg resolved / day' },
   month: { big:'11', sub:'avg resolved / day (May 2026)', total:'159', totalSub:'resolved May 6–19', avg:'11', avgSub:'avg resolved / day' },
 };
 
@@ -1562,22 +1700,22 @@ setView = function(v) {
 /* ── CHART 4: Days to resolve ── */
 // Only days that had resolutions; days with 0 omitted (no meaningful avg/median)
 const dtrDaily = [
-  { date:'May 7',  avg:0.4,  med:0.4  },
-  { date:'May 8',  avg:0.0,  med:0.0  },
-  { date:'May 9',  avg:null, med:null },
-  { date:'May 10', avg:null, med:null },
-  { date:'May 11', avg:1.7,  med:0.0  },
-  { date:'May 12', avg:null, med:null },
-  { date:'May 13', avg:null, med:null },
-  { date:'May 14', avg:null, med:null },
-  { date:'May 15', avg:null, med:null },
-  { date:'May 16', avg:null, med:null },
-  { date:'May 17', avg:null, med:null },
   { date:'May 18', avg:9.3,  med:9.7  },
   { date:'May 19', avg:9.0,  med:8.6  },
   { date:'May 20', avg:10.8, med:11.3 },
   { date:'May 21', avg:8.4,  med:7.8  },
-  { date:'May 22', avg:9.8,  med:10.5 },
+  { date:'May 22', avg:9.2,  med:9.0  },
+  { date:'May 23', avg:null, med:null },
+  { date:'May 24', avg:null, med:null },
+  { date:'May 25', avg:10.6, med:10.8 },
+  { date:'May 26', avg:12.6, med:14.7 },
+  { date:'May 27', avg:10.8, med:14.8 },
+  { date:'May 28', avg:5.4,  med:4.9  },
+  { date:'May 29', avg:7.9,  med:7.8  },
+  { date:'May 30', avg:null, med:null },
+  { date:'May 31', avg:null, med:null },
+  { date:'Jun 1',  avg:null, med:null },
+  { date:'Jun 2',  avg:null, med:null },
 ];
 // Weekly: weighted avg across all resolved claims in each week
 const dtrWeekly = [
@@ -1586,13 +1724,13 @@ const dtrWeekly = [
   { date:'May 19–22', avg:9.5, med:9.6 },
 ];
 const dtrMonthly = [
-  { date:'May 2026', avg:9.1, med:8.8 },
+  { date:'May 2026', avg:9.5, med:9.5 },
 ];
 const dtrViews = { day:dtrDaily, week:dtrWeekly, month:dtrMonthly };
 const dtrKpiText = {
-  day:   { big:'8.4d',  sub:'avg days to resolve — May 21 (39 claims)', median:'7.8d',  medSub:'median — May 21', pavg:'9.1d', pavgSub:'across all 235 resolved' },
-  week:  { big:'9.5d',  sub:'avg days to resolve (May 19–22)',           median:'9.6d',  medSub:'median (May 19–22)',  pavg:'9.1d', pavgSub:'across all 235 resolved' },
-  month: { big:'9.1d',  sub:'avg days to resolve (May 2026)',            median:'8.8d',  medSub:'median (May 2026)',   pavg:'9.1d', pavgSub:'across all 235 resolved' },
+  day:   { big:'7.9d',  sub:'avg days to resolve — May 29 (7 claims)', median:'7.8d',  medSub:'median — May 29', pavg:'9.5d', pavgSub:'across all 345 resolved' },
+  week:  { big:'9.4d',  sub:'avg days to resolve (May 24–30)',          median:'9.6d',  medSub:'median (May 24–30)',  pavg:'9.5d', pavgSub:'across all 345 resolved' },
+  month: { big:'9.5d',  sub:'avg days to resolve (May 2026)',            median:'9.5d',  medSub:'median (May 2026)',   pavg:'9.5d', pavgSub:'across all 345 resolved' },
 };
 
 function drawDtrChart(view) {
@@ -1740,35 +1878,35 @@ setView = function(v) {
 
 /* ── CHART 4: Cancelled per day ── */
 const cancelDaily = [
-  { date:'May 7',  cancel:16 },
-  { date:'May 8',  cancel:22 },
-  { date:'May 9',  cancel:0  },
-  { date:'May 10', cancel:37 },
-  { date:'May 11', cancel:27 },
-  { date:'May 12', cancel:13 },
-  { date:'May 13', cancel:44 },
-  { date:'May 14', cancel:27 },
-  { date:'May 15', cancel:24 },
-  { date:'May 16', cancel:20 },
-  { date:'May 17', cancel:30 },
   { date:'May 18', cancel:26 },
   { date:'May 19', cancel:22 },
   { date:'May 20', cancel:29 },
   { date:'May 21', cancel:17 },
-  { date:'May 22', cancel:2  },
+  { date:'May 22', cancel:84 },
+  { date:'May 23', cancel:9  },
+  { date:'May 24', cancel:66 },
+  { date:'May 25', cancel:48 },
+  { date:'May 26', cancel:42 },
+  { date:'May 27', cancel:26 },
+  { date:'May 28', cancel:63 },
+  { date:'May 29', cancel:9  },
+  { date:'May 30', cancel:11 },
+  { date:'May 31', cancel:50 },
+  { date:'Jun 1',  cancel:9  },
+  { date:'Jun 2',  cancel:0  },
 ];
 const cancelWeekly = [
-  { date:'May 7–11',  cancel:Math.round((16+22+0+37+27)/5) },
-  { date:'May 12–18', cancel:Math.round((13+44+27+24+20+30+26)/7) },
-  { date:'May 19–22', cancel:Math.round((22+29+17+2)/4) },
+  { date:'May 18–24', cancel:Math.round((26+22+29+17+84+9+66)/7) },
+  { date:'May 25–31', cancel:Math.round((48+42+26+63+9+11+50)/7) },
+  { date:'Jun 1–2',   cancel:Math.round((9+0)/2) },
 ];
 const cancelMonthly = [
   { date:'May 2026', cancel:Math.round(cancelDaily.reduce((s,d)=>s+d.cancel,0)/cancelDaily.length) },
 ];
 const cancelViews = { day:cancelDaily, week:cancelWeekly, month:cancelMonthly };
 const cancelKpiText = {
-  day:   { big:'17', sub:'cancelled yesterday (May 21)', total:'389', totalSub:'cancelled May 7–22', avg:'24', avgSub:'avg cancelled / day (16d)' },
-  week:  { big:'18', sub:'avg cancelled / day (May 19–22)',          total:'344', totalSub:'cancelled May 6–20', avg:'23', avgSub:'avg cancelled / day' },
+  day:   { big:'50', sub:'cancelled yesterday (Jun 1)', total:'533', totalSub:'cancelled May 17–Jun 1', avg:'33', avgSub:'avg cancelled / day (16d)' },
+  week:  { big:'36', sub:'avg cancelled / day (May 25–31)',          total:'344', totalSub:'cancelled May 6–20', avg:'23', avgSub:'avg cancelled / day' },
   month: { big:'23', sub:'avg cancelled / day (May 2026)',           total:'344', totalSub:'cancelled May 6–20', avg:'23', avgSub:'avg cancelled / day' },
 };
 
@@ -1796,68 +1934,68 @@ setView = function(v) {
 
 /* ── CHART 6a: Claims received per day ── */
 const recvDaily = [
-  { date:'May 7',  recv:85  },
-  { date:'May 8',  recv:68  },
-  { date:'May 9',  recv:69  },
-  { date:'May 10', recv:71  },
-  { date:'May 11', recv:104 },
-  { date:'May 12', recv:80  },
-  { date:'May 13', recv:79  },
-  { date:'May 14', recv:63  },
-  { date:'May 15', recv:71  },
-  { date:'May 16', recv:67  },
-  { date:'May 17', recv:80  },
   { date:'May 18', recv:82  },
   { date:'May 19', recv:64  },
   { date:'May 20', recv:72  },
   { date:'May 21', recv:72  },
-  { date:'May 22', recv:3   },
+  { date:'May 22', recv:56  },
+  { date:'May 23', recv:50  },
+  { date:'May 24', recv:55  },
+  { date:'May 25', recv:74  },
+  { date:'May 26', recv:36  },
+  { date:'May 27', recv:41  },
+  { date:'May 28', recv:35  },
+  { date:'May 29', recv:32  },
+  { date:'May 30', recv:30  },
+  { date:'May 31', recv:39  },
+  { date:'Jun 1',  recv:16  },
+  { date:'Jun 2',  recv:0   },
 ];
 const recvWeekly = [
-  { date:'May 6–10',  recv:Math.round((98+85+68+69+71)/5) },
-  { date:'May 11–17', recv:Math.round((104+80+79+63+71+67+80)/7) },
-  { date:'May 18–20', recv:Math.round((82+64+72)/3) },
+  { date:'May 18–24', recv:Math.round((82+64+72+72+56+50+55)/7) },
+  { date:'May 25–31', recv:Math.round((74+36+41+35+32+30+39)/7) },
+  { date:'Jun 1–2',   recv:Math.round((16+0)/2) },
 ];
 const recvMonthly = [
   { date:'May 2026', recv:Math.round(recvDaily.reduce((s,d)=>s+d.recv,0)/recvDaily.length) },
 ];
 const recvViews = { day:recvDaily, week:recvWeekly, month:recvMonthly };
 const recvKpiText = {
-  day:   { big:'72', sub:'May 21 (yesterday)', avg:'74', avgSub:'avg received / day (16d)' },
-  week:  { big:'53', sub:'avg received / day (May 19–22)', avg:'74', avgSub:'avg received / day' },
+  day:   { big:'39', sub:'May 31 (yesterday)', avg:'52', avgSub:'avg received / day (16d)' },
+  week:  { big:'38', sub:'avg received / day (May 25–31)', avg:'74', avgSub:'avg received / day' },
   month: { big:'74', sub:'avg received / day (May 2026)', avg:'74', avgSub:'avg received / day' },
 };
 
 /* ── CHART 6b: Time to action ── */
 const ttaDaily = [
-  { date:'May 7',  avg:0.3, med:0.3 },
-  { date:'May 8',  avg:1.3, med:0.7 },
-  { date:'May 9',  avg:0.0, med:0.0 },
-  { date:'May 10', avg:2.7, med:3.0 },
-  { date:'May 11', avg:1.1, med:1.0 },
-  { date:'May 12', avg:1.4, med:0.9 },
-  { date:'May 13', avg:1.6, med:0.9 },
-  { date:'May 14', avg:1.5, med:1.1 },
-  { date:'May 15', avg:0.9, med:0.7 },
-  { date:'May 16', avg:1.1, med:0.7 },
-  { date:'May 17', avg:1.4, med:1.0 },
   { date:'May 18', avg:0.9, med:0.7 },
   { date:'May 19', avg:0.9, med:0.6 },
   { date:'May 20', avg:1.0, med:0.5 },
-  { date:'May 21', avg:1.1, med:0.7 },
-  { date:'May 22', avg:0.0, med:0.0 },
+  { date:'May 21', avg:1.1, med:1.0 },
+  { date:'May 22', avg:1.1, med:1.0 },
+  { date:'May 23', avg:1.3, med:1.0 },
+  { date:'May 24', avg:1.6, med:1.3 },
+  { date:'May 25', avg:1.0, med:0.7 },
+  { date:'May 26', avg:1.2, med:0.9 },
+  { date:'May 27', avg:1.4, med:1.3 },
+  { date:'May 28', avg:1.2, med:0.7 },
+  { date:'May 29', avg:1.0, med:0.6 },
+  { date:'May 30', avg:1.2, med:0.8 },
+  { date:'May 31', avg:0.7, med:0.5 },
+  { date:'Jun 1',  avg:0.7, med:0.6 },
+  { date:'Jun 2',  avg:0.0, med:0.0 },
 ];
 const ttaWeekly = [
-  { date:'May 7–11',  avg:1.0, med:0.9 },
-  { date:'May 12–18', avg:1.3, med:0.9 },
-  { date:'May 19–22', avg:0.5, med:0.5 },
+  { date:'May 18–24', avg:1.1, med:0.9 },
+  { date:'May 25–31', avg:1.1, med:0.8 },
+  { date:'Jun 1–2',   avg:0.4, med:0.3 },
 ];
 const ttaMonthly = [
   { date:'May 2026', avg:+(ttaDaily.reduce((s,d)=>s+d.avg,0)/ttaDaily.length).toFixed(1), med:+(ttaDaily.reduce((s,d)=>s+d.med,0)/ttaDaily.length).toFixed(1) },
 ];
 const ttaViews = { day:ttaDaily, week:ttaWeekly, month:ttaMonthly };
 const ttaKpiText = {
-  day:   { big:'1.1d', sub:'avg time to action — May 21 (yesterday)', median:'0.7d', medSub:'median time to action' },
+  day:   { big:'0.7d', sub:'avg time to action — Jun 1 (yesterday)', median:'0.6d', medSub:'median time to action' },
   week:  { big:'1.0d', sub:'avg time to action (May 18–21)',           median:'0.5d', medSub:'median (May 18–21)' },
   month: { big:'1.1d', sub:'avg time to action (May 2026)',            median:'0.8d', medSub:'median (May 2026)' },
 };
